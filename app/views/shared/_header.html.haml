@@ -1,2 +1,6 @@
 %header
   = link_to "STREET CONNECT", root_path, class: 'header_logo'
+  - if user_signed_in?
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'guest_login'
+  - else
+    = link_to 'ゲストユーザーとしてログインする', users_guest_sign_in_path, method: :post, class: 'guest_login'
