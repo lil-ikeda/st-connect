@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: st-connect_production
-  username: st-connect
-  password: <%= ENV['ST-CONNECT_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
