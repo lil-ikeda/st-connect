@@ -1,0 +1,22 @@
+= render 'shared/header'
+.custom-form
+  %h2.form-title ログイン
+  .form-container
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :メールアドレス
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :パスワード
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :ログイン状態を保持
+      .actions
+        = f.submit "ログインする", class: "btn"
+    = render "devise/shared/links"
+
+= render 'shared/footer'
