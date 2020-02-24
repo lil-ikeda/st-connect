@@ -1,28 +1,70 @@
-.top_image {
+.content_box {
+  max-width: 960px;
   margin: 0 auto;
-  margin-top: 4rem;
-  position: relative;
-  width: 50%;
-  height: 30vh;
-  border-radius: 0.5rem;
-  // background: linear-gradient(45deg, #ffff00 0%, #ff3967 45%, #ff3967 55%, #26a9d9  100%);
-  background:  linear-gradient(45deg, rgba(179, 255, 179,1) 0%,rgba(178, 254, 179,1) 20%,rgba(125, 205, 255,1) 55%, #ffff00 100%);
-  background-size: 800% 600%;
-  text-align: center;
-  animation: AnimationName 10s ease -1s infinite;
-  .top_message {
-    color: #333;
-    font-weight: bold;
-    font-size: 1.6rem;
-    padding-top: 7rem;
-    &__discription {
-      color: #333;
+  .top_image {
+    margin: 0 auto;
+    margin-top: 4rem;
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    border-radius: 0.5rem;
+    // background: linear-gradient(45deg, #ffff00 0%, #ff3967 45%, #ff3967 55%, #26a9d9  100%);
+    background:  linear-gradient(45deg, rgba(179, 255, 179,1) 0%,rgba(178, 254, 179,1) 20%,rgba(125, 205, 255,1) 55%, #ffff00 100%);
+    background-size: 800% 600%;
+    text-align: center;
+    animation: AnimationName 10s ease -1s infinite;
+    .top_message {
+      color: #fff;
       font-weight: bold;
+      font-size: 1.6rem;
+      padding-top: 7rem;
+      text-shadow: 0px 0px 5px #999;
+      &__discription {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: 0px 0px 5px #999;
+      }
+    }
+  }
+  .content_title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 2rem 0 1rem 0;
+  }
+  .cards_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .event_link {
       text-decoration: none;
+      color: #222;
+    }
+    .event_card {
+      width: 470px;
+      height: 470px;
+      .event_image {
+        &__content {
+        width: 470px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 0.25rem;
+        }
+      }
+      &__lower {
+        padding: 0.5rem;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+        .event_name {
+          font-weight: bold;
+          font-size: 1.2rem;
+          text-decoration: none;
+          // letter-spacing: 5px;
+        }
+      }
     }
   }
 }
-
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
