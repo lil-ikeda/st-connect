@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.all.order(date: :asc).page(params[:page]).per(10)
   end
 
   def new
@@ -15,9 +16,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
 
   private
   def event_params
-    params.require(:event).permit(:name)
+    params.require(:event).permit(:name, :place, :date, :time, :image)
   end
 end

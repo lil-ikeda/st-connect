@@ -1,7 +1,30 @@
 = render 'shared/header'
-.top_image
-  .top_message 一緒にプレイできるチームメイトを探してみよう！
-  =link_to "STREET CONNECTとは？","#", class: "top_message__discription"
-
-= link_to "新規イベント", new_event_path
+.content_box
+  .top_image
+    .top_message 一緒にプレイできるチームメイトを探してみよう！
+    =link_to "STREET CONNECTとは？","#", class: "top_message__discription"
+  .content_title
+    イベント一覧
+  .cards_box
+    - @events.each do |event|
+      = link_to event_path(event), class: "event_link" do
+        .event_card
+          .event_card__upper
+            .event_image
+              = image_tag event.image.url ,class: "event_image__content"
+          .event_card__lower
+            .event_name
+              = event.name
+            .event_date
+              日にち：
+              = event.date
+            .event_time
+              時間　：
+              = event.time
+            .event_place
+              場所　：
+              = event.place
+    = paginate(@events)
+      
+-# = link_to "新規イベント", new_event_path
 = render 'shared/footer'

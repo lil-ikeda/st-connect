@@ -1,3 +1,30 @@
-= form_with model:@event, local: true do |f|
-  = f.text_area :name
-  = f.submit
+= render 'shared/header'
+.custom-form
+  %h2.form-title イベントを作成
+  .form-container
+    = form_with model: @event, local: true do |f|
+      .field
+        = f.label :イメージ写真
+        %br/
+        .hidden_content
+          .label_content
+            %pre.label_box__text_visible クリックしてファイルをアップロード
+            = f.file_field :image
+      .field
+        = f.label :イベント名
+        %br/
+        = f.text_area :name
+      .field
+        = f.label :開催場所
+        %br/
+        = f.text_area :place  
+      .field
+        = f.label :開催日
+        %br/
+        = f.text_area :date
+      .field
+        = f.label :開催時間
+        %br/
+        = f.text_area :time
+      .actions
+        = f.submit "イベントを作成する", class: "btn"
