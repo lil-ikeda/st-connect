@@ -49,11 +49,11 @@ test:
 #
 production:
   <<: *default
-  database: st-connect_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
-  # host: <%= Rails.application.credentials.rds[:host] %>
-  # database: <%= Rails.application.credentials.rds[:database] %>
-  # username: <%= Rails.application.credentials.rds[:username] %>
-  # password: <%= Rails.application.credentials.rds[:password] %>
+  # database: st-connect_production
+  # username: root
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  # socket: /var/lib/mysql/mysql.sock
+  host: <%= Rails.application.credentials[:rds][:host] %>
+  database: <%= Rails.application.credentials[:rds][:database] %>
+  username: <%= Rails.application.credentials[:rds][:username] %>
+  password: <%= Rails.application.credentials[:rds][:password] %>
