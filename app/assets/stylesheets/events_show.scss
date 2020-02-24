@@ -1,0 +1,56 @@
+.event_info {
+  border-bottom: 1px solid #999;
+  padding: 3rem 0;
+  &__upper {
+    padding: 0 5rem;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: start;
+  }
+  .event_icon {
+    margin-right: 2rem;
+    &__content {
+      width: 300px;
+      height: 300px;
+      border-radius: 0.25rem;
+      object-fit: cover;
+    }
+  }
+  &__right {
+    &--name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    &--others {
+      letter-spacing: 0.5rem;
+    }
+    .admin_btn {
+      text-decoration: none;
+      color: #a10000;
+      font-weight: bold;
+      font-size: 1rem;
+      border: 2px solid #a10000;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      display: block;
+      text-align: center;
+    }
+    .join_btn {
+      text-decoration: none;
+      color: #eee;
+      background-color: #a10000;
+      font-weight: bold;
+      font-size: 1rem;
+      border: 2px solid #a10000;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      display: block;
+      text-align: center;
+    }
+  }
+
+
+}

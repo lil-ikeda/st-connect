@@ -1,0 +1,31 @@
+= render 'shared/header'
+.content_box
+  .event_info
+    .event_info__upper
+      .event_info__left
+        .event_icon
+          = image_tag @event.image.url, class: "event_icon__content"
+      .event_info__right
+        .event_info__right--name
+          = @event.name
+        .event_info__right--others
+          日にち：
+          = @event.date
+        .event_info__right--others
+          時間　：
+          = @event.time
+        .event_info__right--others
+          場所　：
+          = @event.place
+        - if user_signed_in? && current_user.id == @event.owner
+          = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
+          = link_to "イベントを削除する", event_path(@event.id), method: :delete , class: "admin_btn"
+        - else
+          = link_to "イベントに参加する", "#", class: "join_btn"
+    .event_info__middle
+      -# - if user_signed_in? && current_user.id == @event.owner
+      -#   = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
+      -#   = link_to "イベントを削除する", event_path(@event.id), method: :delete , class: "admin_btn"
+    .event_info__lower
+    
+= render 'shared/footer'
