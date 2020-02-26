@@ -13,19 +13,19 @@
       .field
         = f.label :イベント名
         %br/
-        = f.text_area :name
+        = f.text_field :name
       .field
         = f.label :開催場所
         %br/
-        = f.text_area :place  
+        = f.text_field :place  
       .field
         = f.label :開催日
         %br/
-        = f.text_area :date
+        = f.text_field :date
       .field
         = f.label :開催時間
         %br/
-        = f.text_area :time
+        = f.text_field :time
       .actions
         = f.submit "イベントを作成する", class: "btn"
 = render 'shared/footer'

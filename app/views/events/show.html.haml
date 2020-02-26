@@ -2,26 +2,49 @@
 .content_box
   .event_info
     .event_info__upper
-      .event_info__left
-        .event_icon
-          = image_tag @event.image.url, class: "event_icon__content"
-      .event_info__right
-        .event_info__right--name
+      .event_icon
+        = image_tag @event.image.url, class: "event_icon__content"
+      
+      .event_info__text_box
+        .event_info__text_box--name
           = @event.name
-        .event_info__right--others
-          日にち：
-          = @event.date
-        .event_info__right--others
-          時間　：
-          = @event.time
-        .event_info__right--others
-          場所　：
-          = @event.place
-        - if user_signed_in? && current_user.id == @event.owner
-          = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
-          = link_to "イベントを削除する", event_path(@event.id), method: :delete , class: "admin_btn"
+
+        .event_info__table
+          %table
+            %tbody
+              %tr
+                %th 日にち
+                %td
+                  = @event.date
+              %tr
+                %th 時間
+                %td
+                  = @event.time
+              %tr
+                %th 場所
+                %td
+                  = @event.place
+              %tr
+                %th 詳細
+                %td
+
+        -#   日にち：
+        -#   = @event.date
+        -# .event_info__text_box--others
+        -#   時間　：
+        -#   = @event.time
+        -# .event_info__text_box--others
+        -#   場所　：
+        -#   = @event.place
+
+      - if user_signed_in? && current_user.id == @event.owner
+        = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
+        = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
+      - else
+        -if @event_user.nil?
+          = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
         - else
-          = link_to "イベントに参加する", "#", class: "join_btn"
+          = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
     .event_info__middle
       -# - if user_signed_in? && current_user.id == @event.owner
       -#   = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
