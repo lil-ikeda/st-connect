@@ -1,30 +1,60 @@
 .event_info {
   border-bottom: 1px solid #999;
-  padding: 3rem 0;
+  padding: 3rem 10rem;
   &__upper {
-    padding: 0 5rem;
-    display: flex;
-    // flex-wrap: wrap;
-    justify-content: start;
+    margin: 0 auto;
   }
   .event_icon {
-    margin-right: 2rem;
+    text-align: center;
     &__content {
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      max-height: 400px;
       border-radius: 0.25rem;
       object-fit: cover;
     }
   }
-  &__right {
+  table {
+    width: 100%;
+    td {
+      padding: 10px;
+      letter-spacing: 0.2rem;
+    }
+  }
+  &__table {
+    width: 100%;
+    border-radius: 0.25rem;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    tr {
+      border: 1px solid #dedede;
+      border-collapse: collapse;
+      th {
+        background-color: #eeeeee;
+        width: 20%;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: 400;
+        td {
+          width: 61%;
+          padding: 15px;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  
+  &__text_box {
+    
     &--name {
       font-size: 1.5rem;
       font-weight: bold;
-      margin-bottom: 2rem;
+      margin: 1rem 0;
     }
     &--others {
-      letter-spacing: 0.5rem;
+      letter-spacing: 0.3rem;
     }
+  }
     .admin_btn {
       text-decoration: none;
       color: #a10000;
@@ -33,9 +63,10 @@
       border: 2px solid #a10000;
       border-radius: 0.5rem;
       padding: 0.5rem;
-      margin: 1rem 0;
+      margin: 1rem auto;
       display: block;
       text-align: center;
+      width: 80%;
     }
     .join_btn {
       text-decoration: none;
@@ -46,11 +77,25 @@
       border: 2px solid #a10000;
       border-radius: 0.5rem;
       padding: 0.5rem;
-      margin: 1rem 0;
       display: block;
       text-align: center;
+      width: 80%;
+      margin: 1rem auto;
     }
-  }
+    .done_btn {
+      text-decoration: none;
+      color: #fff;
+      background-color: #999;
+      font-weight: bold;
+      font-size: 1rem;
+      border: 2px solid #999;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      display: block;
+      text-align: center;
+      width: 80%;
+      margin: 1rem auto;
+    }
 
 
 }
