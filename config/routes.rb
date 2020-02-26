@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  # ゲストログイン用
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
@@ -10,6 +9,13 @@ Rails.application.routes.draw do
   end
 
   root "events#index"
+  
+  resources :events do
+    member do
+      post :join
+      delete :unjoin
+    end
+  end
 
-  resources :events, only: [:new, :create, :show, :edit, :destroy]
+
 end
