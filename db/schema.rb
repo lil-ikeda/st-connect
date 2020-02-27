@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_071028) do
+ActiveRecord::Schema.define(version: 2020_02_27_095904) do
 
   create_table "event_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_02_27_071028) do
     t.string "description", null: false
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "following_id"
@@ -41,6 +51,13 @@ ActiveRecord::Schema.define(version: 2020_02_27_071028) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
     t.index ["user_id", "following_id"], name: "index_relationships_on_user_id_and_following_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user1_id", null: false
+    t.integer "user2_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_071028) do
 
   add_foreign_key "event_users", "events"
   add_foreign_key "event_users", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "following_id"
 end

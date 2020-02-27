@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'following_id'
   has_many :follwers, through: :passive_relationships, source: :user
 
+  has_many :messages
+  has_many :room_users
+  has_many :rooms, through: :room_users
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
