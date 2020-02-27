@@ -8,7 +8,6 @@
       .event_info__text_box
         .event_info__text_box--name
           = @event.name
-
         .event_info__table
           %table
             %tbody
@@ -28,15 +27,6 @@
                 %th 詳細
                 %td
 
-        -#   日にち：
-        -#   = @event.date
-        -# .event_info__text_box--others
-        -#   時間　：
-        -#   = @event.time
-        -# .event_info__text_box--others
-        -#   場所　：
-        -#   = @event.place
-
       - if user_signed_in? && current_user.id == @event.owner
         = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
         = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
@@ -46,9 +36,20 @@
         - else
           = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
     .event_info__middle
-      -# - if user_signed_in? && current_user.id == @event.owner
-      -#   = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
-      -#   = link_to "イベントを削除する", event_path(@event.id), method: :delete , class: "admin_btn"
     .event_info__lower
-    
+      .content_title 参加予定のメンバー
+      .cards_box
+        - @users.each do |user|
+          = link_to user_path(user), class: "user_link" do
+            .user_card
+              .user_card__icon
+                = image_tag user.image.url, class: "user_card__icon--content"
+              .user_card__name
+                = user.name
+              .user_card__request
+                - if user.id == current_user.id
+                  = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
+                - else
+                  = link_to "リクエストを送る", "#", class: "user_card__request--btn"
+
 = render 'shared/footer'

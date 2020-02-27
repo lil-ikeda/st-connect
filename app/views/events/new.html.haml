@@ -13,19 +13,23 @@
       .field
         = f.label :イベント名
         %br/
-        = f.text_field :name
+        = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Battle Of The Year"
       .field
         = f.label :開催場所
         %br/
-        = f.text_field :place  
+        = f.text_field :place, autofocus: true, autocomplete: "name", placeholder: "〒150-0000 東京都渋谷区〇-〇 Aスタジオ"
       .field
         = f.label :開催日
         %br/
-        = f.text_field :date
+        = f.text_field :date, autofocus: true, autocomplete: "date", placeholder: "20XX年01月23日"
       .field
         = f.label :開催時間
         %br/
-        = f.text_field :time
+        = f.text_field :time, autofocus: true, autocomplete: "time", placeholder: "13:00 ~ 15:00"
+      .field
+        = f.label :詳細
+        %br/
+        = f.text_area :description, autofocus: true, autocomplete: "descroption", placeholder: "日本一を決める大会です"
       .actions
         = f.submit "イベントを作成する", class: "btn"
 = render 'shared/footer'

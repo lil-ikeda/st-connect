@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-  end
-
   def show
-    # binding.pry
     @user = User.find(params[:id])
   end
 
-  # private
-  # def 
+  def follow
+    Relationship.create(user_id: current_user.id, following_id: @user.id)
+    redirect_to user_path(@user.id)
+  end
+
+  def unfollow
+  end
 
 end

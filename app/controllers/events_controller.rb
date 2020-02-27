@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @users = @event.users
     @event_user = EventUser.where(event_id: @event.id, user_id: current_user.id)[0]
   end
   
