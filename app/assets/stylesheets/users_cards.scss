@@ -1,0 +1,40 @@
+.user_link {
+  text-decoration: none;
+}
+  .user_card {
+    width: 45%;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border-radius: 1rem;
+    padding: 2rem 0;
+    margin: 1rem 0;
+    &__icon {
+      &--content {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+    }
+    &__name {
+      color: #222;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    &__request {
+      &--done_btn {
+        text-decoration: none;
+        color: #555;
+        background-color: #eee;
+        padding: 0.5rem 2rem;
+        border-radius: 1rem;
+        border: 1px solid #aaa;
+      }
+      &--btn {
+        text-decoration: none;
+        color: #fff;
+        background-color: #a10000;
+        padding: 0.5rem 2rem;
+        border-radius: 1rem;
+      }
+    }
+  }

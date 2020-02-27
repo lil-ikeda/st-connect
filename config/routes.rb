@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       delete :unjoin
     end
   end
-  resources :users, only: [:index, :show]
+  
+  resources :users, only: [:show] do
+    member do
+      post :follow
+      delete :unfollow
+    end
+  end
 
 end
