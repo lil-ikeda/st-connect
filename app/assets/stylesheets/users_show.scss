@@ -1,0 +1,61 @@
+.user_info {
+  border-bottom: 1px solid #999;
+  padding: 3rem 10rem;
+  &__upper {
+    margin: 0 auto;
+    display: flex;
+    justify-self: start;
+    .user_icon {
+      text-align: center;
+      &__content {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .user_links {
+      margin: auto 0;
+      padding-left: 2rem;
+      &__instagram {
+        margin-bottom: 1rem;
+      }
+      &__admins {
+        display: flex;
+      }
+      &__edit_prof {
+        margin-right: 1rem;
+      }
+      .link_btn_1 {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        // background-color: #eee;
+        background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+        background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
+        overflow: hidden;/*はみ出た部分を隠す*/
+        padding: 0.5rem 2rem;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+      }
+      .link_btn_2 {
+        text-decoration: none;
+        color: #555;
+        font-weight: bold;
+        background-color: #eee;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+    &__text_box {
+      padding-left: 1.5rem;
+      &--name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 1rem 0;
+      }
+    }
+  
+}
