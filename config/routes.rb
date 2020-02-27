@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  # devise_for :users
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
       delete :unjoin
     end
   end
-
+  resources :users, only: [:index, :show]
 
 end
