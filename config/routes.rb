@@ -17,11 +17,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: [:show] do
-    member do
-      post :follow
-      delete :unfollow
-    end
-  end
-
+  resources :users, only: [:show]
+  resources :relationships, only: [:create, :destroy]
 end
