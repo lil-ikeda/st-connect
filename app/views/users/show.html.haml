@@ -15,7 +15,10 @@
             .user_links__sign_out
               = link_to "ログアウト", destroy_user_session_path, class: "link_btn_2"
           - else
+            .user_links__request
             = render 'shared/request_btn'
+            .user_links__chat
+              = render 'shared/chat_btn'
 
     .user_info__text_box
       .user_info__text_box--name
