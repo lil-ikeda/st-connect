@@ -1,41 +1,60 @@
-.user_link {
-  text-decoration: none;
-}
-  .user_card {
-    width: 45%;
-    text-align: center;
-    background-color: rgb(245, 245, 245);
-    border-radius: 1rem;
-    padding: 2rem 0;
-    margin: 1rem 0;
-    &__icon {
-      &--content {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
+
+.cards_box {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .user_link {
+    text-decoration: none;
+  }
+    .user_card {
+      display: block;
+      width: 82px;
+      height: 105px;
+      text-align: center;
+      background-color: rgb(245, 245, 245);
+      border-radius: 1rem;
+      padding: 0.3rem 0;
+      margin: 0.2rem 0.43rem;
+      @media screen and (min-width:400px) and (max-width:768px){
+        width: 117px;
+        margin: 0.2rem 0.4rem;
       }
-    }
-    &__name {
-      color: #222;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    &__request {
-      &--done_btn {
-        text-decoration: none;
-        color: #555;
-        background-color: #eee;
-        padding: 0.5rem 2rem;
-        border-radius: 1rem;
-        border: 1px solid #aaa;
+      @media screen and (min-width:1024px) {
+        width: 117px;
+        margin: 1rem 1.3rem;
       }
-      &--btn {
-        text-decoration: none;
-        color: #fff;
-        background-color: #a10000;
-        padding: 0.5rem 2rem;
-        border-radius: 1rem;
+      &__icon {
+        &--content {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      &__name {
+        color: #222;
+        font-weight: bold;
+        font-size: 0.5rem;
+      }
+      &__request {
+        &--done_btn {
+          text-decoration: none;
+          color: #555;
+          background-color: #eee;
+          padding: 0.3rem 0.5rem;
+          border-radius: 1rem;
+          font-size: 0.5rem;
+          border: 1px solid #aaa;
+        }
+        &--btn {
+          text-decoration: none;
+          color: #fff;
+          background-color: #a10000;
+          padding: 0.2rem 0.3rem;
+          border-radius: 1rem;
+          font-size: 0.5rem;
+          
+        }
       }
     }
   }
