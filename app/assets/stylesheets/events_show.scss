@@ -1,9 +1,13 @@
 .event_info {
   border-bottom: 1px solid #999;
-  padding: 3rem 10rem;
+  padding: 3rem 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  @media screen and (min-width:768px){
+    padding: 3rem 5rem;
+  }
   &__upper {
     margin: 0 auto;
-    border-bottom: 1px solid #dedede;
   }
   .event_icon {
     text-align: center;
@@ -21,37 +25,38 @@
       letter-spacing: 0.2rem;
     }
   }
+  &__text_box {
+    &--name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+  }
   &__table {
     width: 100%;
     border-radius: 0.25rem;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     tr {
       border: 1px solid #dedede;
       border-collapse: collapse;
+      font-size: 0.8rem;
+      font-weight: 400;
       th {
         background-color: #eeeeee;
         width: 20%;
-        padding: 8px;
-        font-size: 14px;
-        font-weight: 400;
+        padding: 0.5rem;
+        @media screen and (min-width:768px) {
+          width: 10%;
+          }
         td {
           width: 61%;
           padding: 15px;
-          font-size: 14px;
-          font-weight: 400;
         }
       }
     }
   }
   
-  &__text_box {
-    &--name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 1rem 0;
-    }
-  }
     .admin_btn {
       text-decoration: none;
       color: #a10000;
@@ -63,7 +68,7 @@
       margin: 1rem auto;
       display: block;
       text-align: center;
-      width: 80%;
+      width: 93%;
     }
     .join_btn {
       text-decoration: none;
@@ -76,8 +81,8 @@
       padding: 0.5rem;
       display: block;
       text-align: center;
-      width: 80%;
-      margin: 1rem auto;
+      width: 93%;
+      margin: 0 auto;
     }
     .done_btn {
       text-decoration: none;
@@ -90,7 +95,15 @@
       padding: 0.5rem;
       display: block;
       text-align: center;
-      width: 80%;
-      margin: 1rem auto;
+      width: 93%;
+      margin: 0 auto;
+    }
+    .user_content_title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0.3rem 0;
+      @media screen and (min-width:1024px) {
+      font-size: 1rem;
+      }
     }
 }

@@ -1,55 +1,54 @@
 = render 'shared/header'
-.content_box
-  .event_info
-    .event_info__upper
-      .event_icon
-        = image_tag @event.image.url, class: "event_icon__content"
-      
-      .event_info__text_box
-        .event_info__text_box--name
-          = @event.name
-        .event_info__table
-          %table
-            %tbody
-              %tr
-                %th 日にち
-                %td
-                  = @event.date
-              %tr
-                %th 時間
-                %td
-                  = @event.time
-              %tr
-                %th 場所
-                %td
-                  = @event.place
-              %tr
-                %th 詳細
-                %td
+.event_info
+  .event_info__upper
+    .event_icon
+      = image_tag @event.image.url, class: "event_icon__content"
+    
+    .event_info__text_box
+      .event_info__text_box--name
+        = @event.name
+      .event_info__table
+        %table
+          %tbody
+            %tr
+              %th 日にち
+              %td
+                = @event.date
+            %tr
+              %th 時間
+              %td
+                = @event.time
+            %tr
+              %th 場所
+              %td
+                = @event.place
+            %tr
+              %th 詳細
+              %td
 
-      - if user_signed_in? && current_user.id == @event.owner
-        = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
-        = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
+    - if user_signed_in? && current_user.id == @event.owner
+      = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
+      = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
+    - else
+      -if @event_user.nil?
+        = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
       - else
-        -if @event_user.nil?
-          = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
-        - else
-          = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
-    .event_info__middle
-    .event_info__lower
-      .content_title 参加予定のメンバー
-      .cards_box
-        - @users.each do |user|
-          = link_to user_path(user), class: "user_link" do
-            .user_card
-              .user_card__icon
-                = image_tag user.image.url, class: "user_card__icon--content"
-              .user_card__name
-                = user.name
-              .user_card__request
-                - if user.id == current_user.id
-                  = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
-                - else
-                  = link_to "リクエストを送る", "#", class: "user_card__request--btn"
+        = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
+  .event_info__middle
+  .event_info__lower
+    .user_content_title 参加予定のメンバー
+    .cards_box
+      - @users.each do |user|
+        = link_to user_path(user), class: "user_link" do
+          .user_card
+            .user_card__icon
+              = image_tag user.image.url, class: "user_card__icon--content"
+            .user_card__name
+              = user.name
+            .user_card__request
+              - if user.id == current_user.id
+                = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
+              - else
+                = link_to "リクエスト", "#", class: "user_card__request--btn"
 
 = render 'shared/footer'
