@@ -15,11 +15,17 @@ class RoomsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def show
     # @user = User.find(params[:id])
     @room = Room.find(params[:id])
     @self = @room.users.find_by(id: current_user.id)
     @other_user = @room.users.where.not(id: current_user.id)[0]
+    @messages = @room.messages
   end
+
+  
 
 end

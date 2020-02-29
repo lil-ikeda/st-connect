@@ -1,7 +1,19 @@
-.room_header
-  = @other_user.name
-.room_main
-  = 
-
-
-.room_footer
+.wrapper
+  .room_header
+    = @other_user.name
+  .room_main
+    - @messages.each do |message|
+      - if message.user == current_user
+        .self_message
+          %span.self_content
+            = message.content
+      - else
+        .other_message
+          %span.other_content
+            = message.content
+  .room_footer
+    = form_with(model: @message, url: messages_path, local: true) do |f|
+      = f.hidden_field :room_id, value: @room.id
+      = f.hidden_field :user_id, value: @self.id
+      = f.text_field :content, placeholder: "Aa", class: 'chat_form'
+      = f.submit 'Send', class: 'chat_send'
