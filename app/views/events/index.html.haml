@@ -1,11 +1,14 @@
 = render 'shared/header'
 .content_box
   .top_image
-    .top_message 一緒にプレイできるチームメイトを探してみよう！
-    .top_message__discription STREET CONNECTとは？
+    %p.top_message
+      一緒にプレイできるチームメイトを探してみよう！
+      %br
+      STREET CONNECTとは？
+    -# .top_message__discription STREET CONNECTとは？
   .content_title
     イベント一覧
-  .cards_box
+  %ul.cards_box
     = render 'shared/event_cards'
     = paginate(@events)
       

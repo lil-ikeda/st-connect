@@ -6,20 +6,29 @@
     margin-top: 4rem;
     position: relative;
     width: 100%;
-    height: 30vh;
-    border-radius: 0.5rem;
+    height: 20vh;
     background: linear-gradient(45deg, #ffff00 0%, #ff6b8d 45%, #ff6085 55%, #a9e8ff 100%);
-    // background: linear-gradient(45deg, #ffff00 0%, #ff3967 45%, #ff3967 55%, #26a9d9  100%);
-    // background:  linear-gradient(45deg, rgba(179, 255, 179,1) 0%,rgba(178, 254, 179,1) 20%,rgba(125, 205, 255,1) 55%, #ffff00 100%);
     background-size: 800% 600%;
     text-align: center;
     animation: AnimationName 10s ease -1s infinite;
+    @media screen and (min-width:768px) {
+      max-width: 960px;
+      border-radius: 0.25rem;
+    }
     .top_message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
       color: #fff;
       font-weight: bold;
-      font-size: 1.6rem;
-      padding-top: 7rem;
+      font-size: 1rem;
       text-shadow: 0px 0px 5px #999;
+      @media screen and (min-width:1024px) {
+        font-size: 1.2rem;
+      }
       &__discription {
         color: #fff;
         font-weight: bold;
@@ -29,44 +38,90 @@
     }
   }
   .content_title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem 0;
     font-weight: bold;
-    font-size: 1.8rem;
-    padding: 2rem 0 1rem 0;
   }
+
   .cards_box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    @media screen and (min-width:768px) and (max-width:1024px) {
+      justify-content: space-between;
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: 1024px) {
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto;
+    }
     .event_link {
       text-decoration: none;
       color: #222;
+      max-width: 960px;
     }
-    .event_card {
-      width: 470px;
-      height: 470px;
+      .event_card {
+        width: 300px;
+        height: 290px;
+        border: 1px solid #ccc;
+        margin: 1rem 0;
+        border-radius: 0.25rem;
+        @media screen and (min-width:400px) {
+          width: 380px;
+          height: 370px;
+        }
+        @media screen and (min-width:768px) and (max-width:1024px){
+          width: 370px;
+          height: 360px;
+          margin: 0.3rem;
+        }
+        @media screen and (min-width: 1024px) {
+          width: 469px;
+          height: 459px;
+        }
       .event_image {
         &__content {
-        width: 470px;
-        height: 320px;
+        width: 300px;
+        height: 160px;
         object-fit: cover;
-        border-radius: 0.25rem;
+        @media screen and (min-width:400px) {
+          width: 380px;
+          height: 240px;
+        }
+        @media screen and (min-width:768px) and (max-width:1024px){
+          width: 370px;
+          height: 230px;
+        }
+        @media screen and (min-width: 1024px) {
+          width: 469px;
+          height: 329px;
+        }
         }
       }
       &__lower {
-        padding: 0.5rem;
-        letter-spacing: 3px;
+        padding: 0.5rem 0.8rem;
+        // letter-spacing: 3px;
         font-size: 0.9rem;
         .event_name {
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1rem;
           text-decoration: none;
+          margin-bottom: 0.5rem;
         }
       }
     }
   }
-}
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  
+    .event_card:hover {
+      box-shadow: 5px 5px 5px #eee;
+    }
+    
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
 }

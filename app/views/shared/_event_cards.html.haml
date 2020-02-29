@@ -6,13 +6,13 @@
           = image_tag event.image.url ,class: "event_image__content"
       .event_card__lower
         .event_name
-          = event.name.truncate(20)
+          = event.name.truncate(19)
         .event_date
           日にち：
-          = event.date.truncate(20)
+          = event.date.truncate(17)
         .event_time
           時間　：
-          = event.time.truncate(20)
+          = event.time.truncate(17)
         .event_place
           場所　：
-          = event.place.truncate(20)
+          = event.place.truncate(17)
