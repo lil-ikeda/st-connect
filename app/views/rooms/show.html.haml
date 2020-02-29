@@ -1,6 +1,6 @@
 .wrapper
   .room_header
-    = @other_user.name
+    = link_to @other_user.name, user_path(@other_user.id), class: "room_header__name"
   .room_main
     - @messages.each do |message|
       - if message.user == current_user
