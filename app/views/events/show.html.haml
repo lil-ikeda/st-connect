@@ -25,6 +25,7 @@
             %tr
               %th 詳細
               %td
+                = simple_format(@event.description)
 
     - if user_signed_in? && current_user.id == @event.owner
       = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"

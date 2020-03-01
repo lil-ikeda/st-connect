@@ -1,3 +1,4 @@
 - if user_signed_in?
   - if current_user.matchers.include?(@user)
     = link_to "チャットする", room_path(@room.id), class: "chat_btn"
+    %p.matching_alert あなたとマッチング中です

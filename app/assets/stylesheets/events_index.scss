@@ -49,12 +49,12 @@
     flex-wrap: wrap;
     justify-content: center;
     @media screen and (min-width:768px) and (max-width:1024px) {
-      justify-content: space-between;
+      // justify-content: space-between;
       max-width: 768px;
       margin: 0 auto;
     }
     @media screen and (min-width: 1024px) {
-      justify-content: space-between;
+      // justify-content: space-between;
       max-width: 960px;
       margin: 0 auto;
     }
@@ -81,6 +81,7 @@
         @media screen and (min-width: 1024px) {
           width: 468px;
           height: 459px;
+          margin: 0.3rem;
         }
       .event_image {
         &__content {
