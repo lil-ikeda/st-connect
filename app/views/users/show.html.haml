@@ -1,5 +1,4 @@
 = render 'shared/header'
-
 .content_box
   .user_info
     .user_info__upper
@@ -63,24 +62,10 @@
       -# マッチング中のユーザー
       .user_cards_box
         - @matchers.each do |user|
-          .cards_box
-            = link_to user_path(user), class: "user_link" do
-              .user_card
-                .user_card__icon
-                  = image_tag user.image.url, class: "user_card__icon--content"
-                .user_card__name
-                  = user.name
-      -# .cards_box
-      -# - @users.each do |user|
-      -#   = link_to user_path(user), class: "user_link" do
-      -#     .user_card
-      -#       .user_card__icon
-      -#         = image_tag user.image.url, class: "user_card__icon--content"
-      -#       .user_card__name
-      -#         = user.name
-      -#       .user_card__request
-      -#         - if user.id == current_user.id
-      -#           = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
-      -#         - else
-      -#           = link_to "リクエスト", "#", class: "user_card__request--btn"
+          = link_to user_path(user), class: "user_link" do
+            .user_card
+              .user_card__icon
+                = image_tag user.image.url, class: "user_card__icon--content"
+              .user_card__name
+                = user.name
 = render 'shared/footer'

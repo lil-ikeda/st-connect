@@ -130,6 +130,11 @@
           color: #555;
           font-size: 0.4rem;
         }
+        &__item.active {
+          color: #222;
+          border-bottom: 1px solid #222;
+          font-weight: bold;
+        }
       }
       .user_cards_box {
         display: none;

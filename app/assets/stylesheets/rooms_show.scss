@@ -19,7 +19,6 @@
   }
   .room_main {
     width: 100%;
-    max-width: 768px;
     margin: 0 auto;
     height: calc(100vh - 120px);
     font-size: 1.2rem;
@@ -32,7 +31,7 @@
       justify-content: flex-end;
       .self_content {
         font-size: 0.9rem;
-        background-color: #eee;
+        background-color: rgb(213, 245, 255);
         padding: 0.4rem 1rem;
         border-radius: 1.2rem;
         display: inline-block;
@@ -46,7 +45,7 @@
       justify-content: flex-start;
       .other_content {
         font-size: 0.9rem;
-        background-color: rgb(213, 245, 255);
+        background-color: #eee;
         padding: 0.4rem 1rem;
         border-radius: 1.2rem;
         display: inline-block;
