@@ -21,11 +21,15 @@
       .field
         = f.label :開催日
         %br/
-        = f.text_field :date, autofocus: true, autocomplete: "date", placeholder: "20XX年01月23日"
+        .form_border_bottom
+          = f.date_select :date, autofocus: true, autocomplete: "date"
       .field
-        = f.label :開催時間
+        = f.label :時間
         %br/
-        = f.text_field :time, autofocus: true, autocomplete: "time", placeholder: "13:00 ~ 15:00"
+        .form_border_bottom
+          = f.time_select :open_time
+          〜
+          = f.time_select :end_time
       .field
         = f.label :詳細
         %br/

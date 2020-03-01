@@ -9,10 +9,12 @@
           = event.name.truncate(19)
         .event_date
           日にち：
-          = event.date.truncate(17)
+          = event.date.strftime("%Y年%m月%d日")
         .event_time
           時間　：
-          = event.time.truncate(17)
+          = "#{event.open_time}".slice(11..15)
+          〜
+          = "#{event.end_time}".slice(11..15)
         .event_place
           場所　：
           = event.place.truncate(15)
