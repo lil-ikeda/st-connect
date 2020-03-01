@@ -16,10 +16,9 @@
               = link_to "ログアウト", destroy_user_session_path, class: "link_btn_2"
           - else
             .user_links__request
-            = render 'shared/request_btn'
+              = render 'shared/request_btn'
             .user_links__chat
               = render 'shared/chat_btn'
-
     .user_info__text_box
       .user_info__text_box--name
         = @user.name
@@ -27,5 +26,61 @@
         = simple_format(@user.profile)
 
     .user_info__lower
+      %ul.user_tabs
+        %li.user_tabs__item.active 作成したイベント
+        %li.user_tabs__item リクエスト済
+        %li.user_tabs__item リクエストされた
+        %li.user_tabs__item マッチ中
+      -# 作成したイベント
+      .user_cards_box.show
+        - @events.each do |event|
+          = link_to event_path(event.id), class: "event_links" do
+            .event_mini_card
+              = image_tag event.image.url, class: "event_mini_card__icon"
+              .event_mini_card__name
+                = event.name.truncate(14)
+      
+        -# リクエスト済みのユーザー
+      .user_cards_box
+        - @following_users.each do |user|
+          = link_to user_path(user), class: "user_link" do
+            .user_card
+              .user_card__icon
+                = image_tag user.image.url, class: "user_card__icon--content"
+              .user_card__name
+                = user.name
 
+      -# リクエストされたユーザー
+      .user_cards_box
+        - @followed_users.each do |user|
+          = link_to user_path(user), class: "user_link" do
+            .user_card
+              .user_card__icon
+                = image_tag user.image.url, class: "user_card__icon--content"
+              .user_card__name
+                = user.name
+
+      -# マッチング中のユーザー
+      .user_cards_box
+        - @matchers.each do |user|
+          .cards_box
+            = link_to user_path(user), class: "user_link" do
+              .user_card
+                .user_card__icon
+                  = image_tag user.image.url, class: "user_card__icon--content"
+                .user_card__name
+                  = user.name
+      -# .cards_box
+      -# - @users.each do |user|
+      -#   = link_to user_path(user), class: "user_link" do
+      -#     .user_card
+      -#       .user_card__icon
+      -#         = image_tag user.image.url, class: "user_card__icon--content"
+      -#       .user_card__name
+      -#         = user.name
+      -#       .user_card__request
+      -#         - if user.id == current_user.id
+      -#           = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
+      -#         - else
+      -#           = link_to "リクエスト", "#", class: "user_card__request--btn"
 = render 'shared/footer'

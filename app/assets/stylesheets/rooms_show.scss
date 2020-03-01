@@ -1,5 +1,6 @@
 .wrapper {
   height: 100vh;
+  background-color: rgb(243, 243, 243);
   .room_header {
     text-align: center;
     line-height: 60px;
@@ -18,11 +19,14 @@
   }
   .room_main {
     width: 100%;
-    max-width: 960px;
+    max-width: 768px;
     margin: 0 auto;
     height: calc(100vh - 120px);
     font-size: 1.2rem;
     overflow: scroll;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+    background-color: #fff;
     .self_message {
       display: flex;
       justify-content: flex-end;
@@ -59,14 +63,18 @@
     height: 60px;
     line-height: 60px;
     padding: 0 2%;
-    .chat_form {
-      width: 80%;
-      margin-right: 2%;
-      // border-radius: 0.6rem;
-      outline: 0;
+    &__box {
+      max-width: 768px;
+      margin: 0 auto;
     }
-    .chat_send {
-      width: 13%;
-    }
+      .chat_form {
+        width: 80%;
+        margin-right: 2%;
+        // border-radius: 0.6rem;
+        outline: 0;
+      }
+      .chat_send {
+        width: 13%;
+      }
   }
 }
