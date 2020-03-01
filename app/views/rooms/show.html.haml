@@ -10,7 +10,7 @@
       - else
         .other_message
           %span.other_content
-            = message.content
+            = simple_format(message.content)
   .room_footer
     = form_with(model: @message, url: messages_path, local: true) do |f|
       = f.hidden_field :room_id, value: @room.id

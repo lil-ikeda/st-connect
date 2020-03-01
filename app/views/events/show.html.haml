@@ -13,11 +13,13 @@
             %tr
               %th 日にち
               %td
-                = @event.date
+                = @event.date.strftime("%Y年%m月%d日")
             %tr
               %th 時間
               %td
-                = @event.time
+                = "#{@event.open_time}".slice(11..15)
+                〜
+                = "#{@event.end_time}".slice(11..15)
             %tr
               %th 場所
               %td
@@ -45,7 +47,7 @@
             .user_card__icon
               = image_tag user.image.url, class: "user_card__icon--content"
             .user_card__name
-              = user.name
+              = user.name.truncate(12)
             .user_card__request
               - if user.id == current_user.id
                 = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
