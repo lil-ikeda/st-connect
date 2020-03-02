@@ -55,9 +55,10 @@
             .user_card__name
               = user.name.truncate(12)
             .user_card__request
-              - if user.id == current_user.id
-                = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
-              - else
-                = link_to "リクエスト", "#", class: "user_card__request--btn"
+              - if user_signed_in?
+                - if user.id == current_user.id
+                  = link_to "あなたです", user_path(user), class: "user_card__request--done_btn"
+                - else
+                  = link_to "リクエスト", "#", class: "user_card__request--btn"
 
 = render 'shared/footer'
