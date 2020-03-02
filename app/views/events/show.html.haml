@@ -37,10 +37,12 @@
       = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
       = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
     - else
-      -if @event_user.nil?
+      -if user_signed_in? && @event_user.nil?
         = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
-      - else
+      - elsif user_signed_in? && @event_user.nil
         = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
+      - else
+        = link_to "イベントに参加する場合はログインをしてください", user_session_path, class: "join_btn"
   .event_info__middle
   .event_info__lower
     .user_content_title 参加予定のメンバー
