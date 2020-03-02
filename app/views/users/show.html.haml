@@ -12,7 +12,7 @@
             .user_links__edit_prof
               = link_to "編集する", edit_user_registration_path, class: "link_btn_2"
             .user_links__sign_out
-              = link_to "ログアウト", destroy_user_session_path, class: "link_btn_2"
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link_btn_2"
           - else
             .user_links__request
               = render 'shared/request_btn'
