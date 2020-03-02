@@ -1,0 +1,26 @@
+= render 'shared/header'
+.content_box
+  .content_title リクエスト通知一覧
+  - if @notifications.exists?
+    - @notifications.each do |notification|
+      - visitor = notification.visitor
+      - visited = notification.visited
+      .notifications
+        .notifications__left
+          %span.notifications__img
+            = link_to user_path(visitor) do
+              = image_tag visitor.image.url, class:"notifications__img--content"
+          %span.notifications__text
+            %p
+              = link_to visitor.name, user_path(visitor), class: "notifications__text--content"
+              が
+              %br
+              あなたにリクエストしました
+        .notifications__right
+          = time_ago_in_words(notification.created_at).upcase
+          
+  - else
+    .form_notifications
+      %p.form_notifications__nothing 通知はありません
+
+  = render 'shared/footer'

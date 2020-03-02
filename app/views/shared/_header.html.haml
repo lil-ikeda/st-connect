@@ -1,4 +1,17 @@
 %header
-  = link_to "STREET CONNECT", root_path, class: 'header_logo'
-  - if user_signed_in?
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
+  .header_left
+    = link_to "STREET CONNECT", root_path, class: 'header_logo'
+  .header_right
+    - if user_signed_in?
+      = link_to notifications_path do
+        - if unchecked_notifications.any?
+          %span.fa-stack
+            %i.far.fa-bell.fa-lg.fa-stack-2x.bell_icon
+            %i.fas.fa-circle.n-circle.fa-stack-1x
+        - else 
+          %i.far.fa-bell.fa-lg.bell_icon
+
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      = link_to "ログイン", new_user_session_path
+      = link_to "新規登録", new_user_registration_path

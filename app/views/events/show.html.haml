@@ -39,7 +39,7 @@
     - else
       -if user_signed_in? && @event_user.nil?
         = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
-      - elsif user_signed_in? && @event_user.nil
+      - elsif user_signed_in?
         = link_to "参加をやめる", unjoin_event_path(@event.id), method: :delete, class: "done_btn"
       - else
         = link_to "イベントに参加する場合はログインをしてください", user_session_path, class: "join_btn"
