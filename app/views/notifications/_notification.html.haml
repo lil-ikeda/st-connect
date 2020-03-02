@@ -1,0 +1,17 @@
+- visitor = notification.visitor
+- visited = notification.visited
+
+.form_inline
+  span
+    = link_to user_path(visitor) do
+      = image_tag visitor.image.url
+      strong
+        = visitor.name
+      = 'さんが'
+
+  - case notification.action
+  - when 'follow' then
+    = 'あなたをフォローしました'
+    
+.text_right
+  = time_ago_in_words(notification.created_at).upcase

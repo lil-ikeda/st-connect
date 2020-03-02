@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :room_users, foreign_key: :user_id, dependent: :destroy
   has_many :rooms, through: :room_users
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -48,6 +51,17 @@ class User < ApplicationRecord
     User.where(id: passive_relationships.select(:user_id))
     .where(id: relationships.select(:following_id))
   end
-
+  
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ?",current_user.id, id])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+      )
+      notification.save if notification.valid?
+    end
+  end
+  
   mount_uploader :image, ImageUploader
+    
 end

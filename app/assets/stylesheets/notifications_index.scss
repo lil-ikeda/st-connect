@@ -1,0 +1,55 @@
+.notifications {
+  max-width: 960px;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0.5rem;
+  @media screen and (min-width:425px) {
+    padding: 0.5rem 1rem;
+  }
+  &__img {
+    &--content {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      @media screen and (min-width:1024px) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  &__text {
+    position: absolute;
+    left: 70px;
+    top: 30%;
+    font-size: 0.5rem;
+    @media screen and (min-width:425px) and (max-width:1024px){
+      left: 90px;
+      font-size: 0.8rem;
+      top: 25%;
+    }
+    @media screen and (min-width:1024px) {
+      left: 150px;
+      font-size: 1rem;
+    }
+    &--content {
+      text-decoration: none;
+      font-weight: bold;
+      color: #222;
+    }
+  }
+  &__right {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 1rem;
+    font-size: 0.5rem;
+    @media screen and (min-width:768px) {
+      font-size: 0.8rem;
+    }
+    @media screen and (min-width:1024px) {
+      font-size: 1rem;
+    }
+  }
+}

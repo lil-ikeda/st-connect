@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_022106) do
+ActiveRecord::Schema.define(version: 2020_03_02_040735) do
 
   create_table "event_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_022106) do
     t.date "date", null: false
     t.text "image"
     t.string "place", null: false
-    t.time "open_time", null: false
+    t.time "open_time"
     t.time "end_time"
     t.integer "owner", null: false
     t.datetime "created_at", null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2020_02_28_022106) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
