@@ -28,6 +28,10 @@
               %th 詳細
               %td
                 = simple_format(@event.description)
+            %tr
+              %th 主催者
+              %td
+                = link_to @owner.name, user_path(@owner.id), class: "owner_link"
 
     - if user_signed_in? && current_user.id == @event.owner
       = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
