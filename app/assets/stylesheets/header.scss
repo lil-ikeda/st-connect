@@ -4,11 +4,45 @@ header {
   display: flex;
   justify-content: space-evenly;
   .header_logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     color: #000;
     text-decoration: none;
     letter-spacing: 5px;
   }
+  .header_right {
+    .notifications_link {
+      text-decoration: none;
+    }
+    &__my_page {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      font-size: 0.8rem;
+      border: 1.5px solid #212529;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    &__sign_in {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      font-size: 0.8rem;
+      padding: 10px;
+      cursor: pointer;
+    }
+    &__sign_up {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      font-size: 0.8rem;
+      border: 1.5px solid #212529;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  
 }

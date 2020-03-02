@@ -1,6 +1,8 @@
 = render 'shared/header'
 .content_box
   .content_title リクエスト通知一覧
+
+  
   - if @notifications.exists?
     - @notifications.each do |notification|
       - visitor = notification.visitor
@@ -18,9 +20,7 @@
               あなたにリクエストしました
         .notifications__right
           = time_ago_in_words(notification.created_at).upcase
-          
   - else
     .form_notifications
       %p.form_notifications__nothing 通知はありません
-
-  = render 'shared/footer'
+= render 'shared/footer'

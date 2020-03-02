@@ -1,17 +1,14 @@
 .bell_icon {
+  font-size: 1.4rem;
   text-decoration: none;
   color: black;
+  margin: 0 1rem;
 }
 
 .n-circle {
   position: absolute;
   padding-left: 0.5rem;
   padding-top: 0rem;
-  color:  #ff6b8d ;
+  color:  #ff956b ;
 }
 
-@-webkit-keyframes AnimationName {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
