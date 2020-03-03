@@ -2,10 +2,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :evnet_users, foreign_key: :user_id, dependent: :destroy
+  has_many :event_users, foreign_key: :user_id, dependent: :destroy
   has_many :events, through: :event_users
 
-  has_many :relationships
+  has_many :relationships, foreign_key: :user_id, dependent: :destroy
   has_many :followings, through: :relationships, source: :following
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'following_id'
   has_many :follwers, through: :passive_relationships, source: :user

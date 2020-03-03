@@ -6,10 +6,16 @@
       = link_to notifications_path, class: "notifications_link" do
         - if unchecked_notifications.any?
           %span.fa-stack
-            %i.far.fa-bell.fa-lg.fa-stack-2x.bell_icon
+            %i.far.fa-bell.fa-lg.fa-stack-2x
             %i.fas.fa-circle.n-circle.fa-stack-1x
         - else 
-          %i.far.fa-bell.fa-lg.bell_icon
+          %i.far.fa-bell.fa-lg
+          
+        -#   %span.fa-stack
+        -#     %i.far.fa-bell.fa-lg.fa-stack-2x.bell_icon
+        -#     %i.fas.fa-circle.n-circle.fa-stack-1x
+        -# - else 
+        -#   %i.far.fa-bell.fa-lg.bell_icon
       -# = link_to user_path(current_user.id) do
       -#   = icon('fas', 'user')
       = link_to "マイページ", user_path(current_user.id), class: "header_right__my_page"

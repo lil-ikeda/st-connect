@@ -7,11 +7,9 @@
       .field
         = f.label :プロフィール写真
         .field.image
-          -# = icon('fas', 'camera')
-          -# = f.label 'サムネイル（スクリーンショットなど）'
-          -# \// id "file"で、fileとdivを紐付けクリック時に連動
+          // id "file"で、fileとdivを紐付けクリック時に連動
           #regitration_img_field{:onclick => "$('#regitration_file').click()"}
-            -# \// 画像があるときは画像を表示する
+            // 画像があるときは画像を表示する
             - if @user.image.url.present?
               = image_tag(@user.image.url)
             - else
@@ -19,7 +17,6 @@
           = f.file_field :image, class: "regitration_image", style: "display:none;", id: "regitration_file"
 
         %br/
-        -# = f.file_field :image, autofocus: true, autocomplete: "name", placeholder: "田中ユウキ"
       .field
         = f.label :ユーザーネーム
         %br/
