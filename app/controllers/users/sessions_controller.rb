@@ -5,6 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def new_guest
     user = User.guest
+    user.image = "user_test_login.jpeg"
     sign_in user
     redirect_to root_path
   end

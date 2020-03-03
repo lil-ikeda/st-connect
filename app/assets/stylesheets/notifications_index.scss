@@ -52,4 +52,9 @@
       font-size: 1rem;
     }
   }
+  &__nothing {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding: 2rem 0;
+  }
 }

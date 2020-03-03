@@ -21,6 +21,6 @@
         .notifications__right
           = time_ago_in_words(notification.created_at).upcase
   - else
-    .form_notifications
-      %p.form_notifications__nothing 通知はありません
+    -# .form_notifications
+    %p.notifications__nothing 通知はありません
 = render 'shared/footer'

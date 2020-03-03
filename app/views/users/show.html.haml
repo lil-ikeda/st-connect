@@ -6,7 +6,8 @@
         = image_tag @user.image.url, class: "user_icon__content"
       .user_links
         .user_links__instagram
-          = link_to "Instagramアカウント", "https://www.instagram.com/#{@user.url}", class: "link_btn_1"
+          - if @user.url?
+            = link_to "Instagramアカウント", "https://www.instagram.com/#{@user.url}", class: "link_btn_1"
         .user_links__admins
           -if @user.id == current_user.id
             .user_links__edit_prof
