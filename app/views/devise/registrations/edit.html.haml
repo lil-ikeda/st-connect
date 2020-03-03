@@ -1,36 +1,61 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+= render 'shared/header'
+.custom-form
+  %h2.form-title ユーザー情報の編集
+  .form-container
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :プロフィール写真
+        .field.image
+          // id "file"で、fileとdivを紐付けクリック時に連動
+          #regitration_img_field{:onclick => "$('#regitration_file').click()"}
+            // 画像があるときは画像を表示する
+            - if @user.image.url.present?
+              = image_tag @user.image.url, class: "user_edit_img"
+            - else
+              = icon('fas', 'camera')
+          = f.file_field :image, class: "regitration_image", style: "display:none;", id: "regitration_file"
+      .field
+        = f.label :ユーザーネーム
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: "name"
+      .field
+        = f.label :メールアドレス
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .field
+        = f.label :パスワード
+        %span (パスワードの変更をしない場合は入力不要です)
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+        - if @minimum_password_length
+          
+          %em
+            = @minimum_password_length
+            文字以上
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.label :Instagramのアカウント名
+        %br/
+        = f.text_field :url, autocomplete: "url"
+      .field
+        = f.label :プロフィール
+        %br/
+        = f.text_area :profile, autocomplete: "profile"
+      .field
+        = f.label :現在のパスワード
+        %p (ユーザー情報の編集にはパスワードが必要です)
+        %br/
+        = f.password_field :current_password, autocomplete: "current-password"
+      .actions
+        = f.submit "アカウントを更新する", class: "btn"
+      %p.actions
+        #{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してもよろしいですか？" }, method: :delete}
+      = link_to "トップページにもどる", root_path, class:"actions"
+= render 'shared/footer'
