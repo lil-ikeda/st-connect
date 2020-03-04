@@ -13,6 +13,7 @@ class RelationshipsController < ApplicationController
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
       redirect_to user
     end
+    #fukaya redirect_to user
   end
 
   def destroy

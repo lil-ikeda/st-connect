@@ -2,23 +2,25 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :event_users, foreign_key: :user_id, dependent: :destroy
-  has_many :events, through: :event_users
-
-  has_many :relationships, foreign_key: :user_id, dependent: :destroy
+         
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :following
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'following_id'
   has_many :follwers, through: :passive_relationships, source: :user
-
-  has_many :messages
-  has_many :room_users, foreign_key: :user_id, dependent: :destroy
+  
+  has_many :messages, dependent: :destroy
+  
   has_many :rooms, through: :room_users
   
-  has_many :comments, dependent: :destroy
-
+  has_many :comments, foreign_key: :user_id, dependent: :destroy
+  
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-
+  has_many :room_users, foreign_key: :user_id, dependent: :destroy
+  
+  has_many :event_users, dependent: :destroy
+  has_many :events, through: :event_users
+  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

@@ -10,6 +10,7 @@
           // id "file"で、fileとdivを紐付けクリック時に連動
           #regitration_img_field{:onclick => "$('#regitration_file').click()"}
             // 画像があるときは画像を表示する
+            -# -if user_signed_in?
             - if @user.image.url.present?
               = image_tag(@user.image.url)
             - else
