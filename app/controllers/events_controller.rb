@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   
   def search
     @events = Event.search(params[:keyword])
-    # binding.pry
     respond_to do |format|
       format.html
       format.json
@@ -25,6 +24,7 @@ class EventsController < ApplicationController
     else
       render :new
     end
+    #fukaya @event.save ? redirect_to root_path : render :new
   end
 
   def show
