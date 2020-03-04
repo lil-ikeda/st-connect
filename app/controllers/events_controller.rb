@@ -4,6 +4,15 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.order(date: :asc).page(params[:page]).per(10)
   end
+  
+  def search
+    @events = Event.search(params[:keyword])
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   def new
     @event = Event.new

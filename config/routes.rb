@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       post :join
       delete :unjoin
     end
+    collection do
+      get :search
+    end
   end
   
   resources :users, only: [:show]
