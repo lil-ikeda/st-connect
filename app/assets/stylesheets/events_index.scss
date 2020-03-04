@@ -125,4 +125,55 @@
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
     }
+    .event_post_path {
+      text-decoration: none;
+      color: #333;
+    }
+      .event_post {
+        width: 80px;
+        height: 80px;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 10px;
+        bottom: 20px;
+        background-color: #FFF;
+        border: 1px solid #ccc;
+        opacity: 0.9;
+        @media screen and (min-width:425px){
+          width: 120px;
+          height: 120px;
+          right: 30px;
+          bottom: 30px;
+        }
+        @media screen and (min-width:768px){
+          right: 10%;
+        }
+        @media screen and (min-width:1440px){
+          right: 20%;
+        }
+      
+      &__btn {
+        &--text {
+          font-weight: bold;
+          position: absolute;
+          top: 17%;
+          left: 17%;
+          font-size: 0.5rem;
+          @media screen and (min-width:425px) {
+            font-size: 0.8rem;
+          }
+        }
+        &--icon i{
+          position: absolute;
+          left: 25%;
+          top: 35%;
+          font-size: 2rem;
+          @media screen and (min-width:425px) {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
 }

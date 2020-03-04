@@ -4,8 +4,8 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   def new_guest
-    user = User.guest(image: "user_test_login.jpeg")
-    # user.image = "user_test_login.jpeg"
+    user = User.guest
+    user.image = "user_test_login.jpeg"
     sign_in user
     redirect_to root_path
   end
