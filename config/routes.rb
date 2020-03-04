@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "events#index"
   
   resources :events do
+    resources :comments, only: [:create, :destroy]
     member do
       post :join
       delete :unjoin

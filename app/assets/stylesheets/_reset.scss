@@ -46,6 +46,8 @@ th,
 td {
   margin:0;
   padding:0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 table {
   border-collapse:collapse;

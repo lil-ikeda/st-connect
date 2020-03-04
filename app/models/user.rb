@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :room_users, foreign_key: :user_id, dependent: :destroy
   has_many :rooms, through: :room_users
+  
+  has_many :comments, dependent: :destroy
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
