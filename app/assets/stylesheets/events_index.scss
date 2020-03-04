@@ -176,4 +176,8 @@
         }
       }
     }
+    .event_post:hover {
+      opacity: 1;
+      transition: 0.5s ease-out;
+    }
 }
