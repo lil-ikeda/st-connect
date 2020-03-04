@@ -4,4 +4,9 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   mount_uploader :image, ImageUploader
+
+  def self.search(input)
+    return nil if input == ""
+    Event.where(['name LIKE ?', "%#{input}%"] ).limit(10)
+  end
 end
