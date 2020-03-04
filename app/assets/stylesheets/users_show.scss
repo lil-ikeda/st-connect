@@ -125,7 +125,7 @@
       border-top: 1px solid #ccc;
       .user_tabs {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         margin-bottom: 1rem;
         &__item {
           padding: 0.5rem;

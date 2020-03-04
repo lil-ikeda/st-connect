@@ -21,6 +21,8 @@ class EventsController < ApplicationController
   def show
     @users = @event.users
     @owner = User.find_by(id: @event.owner)
+    @comment = Comment.new
+    @comments = @event.comments.includes(:user).order(created_at: :desc)
     if user_signed_in?
       @event_user = EventUser.where(event_id: @event.id, user_id: current_user.id)[0]
     end

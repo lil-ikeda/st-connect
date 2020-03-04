@@ -6,19 +6,15 @@
       .field
         = f.label :イメージ写真
         .field.image
-          -# = icon('fas', 'camera')
-          -# = f.label 'サムネイル（スクリーンショットなど）'
-          -# \// id "file"で、fileとdivを紐付けクリック時に連動
+          // id "file"で、fileとdivを紐付けクリック時に連動
           #img_field{:onclick => "$('#file').click()"}
-            -# \// 画像があるときは画像を表示する
+            // 画像があるときは画像を表示する
             - if @event.image.url.present?
               = image_tag(@event.image.url)
             - else
               = icon('fas', 'camera')
-              
-              -# %i.fas.fa-image
-              -# %i.fas.fa-file-upload.add
-            -# \// id "file"をつけ、「display:none;」で隠す
+
+          // id "file"をつけ、「display:none;」で隠す
           = f.file_field :image, class: "image", style: "display:none;", id: "file"
 
       .field
