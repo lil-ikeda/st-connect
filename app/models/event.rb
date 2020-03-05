@@ -6,7 +6,11 @@ class Event < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def self.search(input)
-    return nil if input == ""
-    Event.where(['name LIKE ?', "%#{input}%"] ).limit(10)
+    if input == ""
+      Event.all.order(date: :asc)
+    else
+      Event.where(['name LIKE ?', "%#{input}%"] ).limit(10)
+    end
   end
+
 end

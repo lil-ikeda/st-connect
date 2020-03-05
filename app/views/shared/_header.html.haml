@@ -10,15 +10,9 @@
             %i.fas.fa-circle.n-circle.fa-stack-1x
         - else 
           %i.far.fa-bell.fa-lg
-          
-        -#   %span.fa-stack
-        -#     %i.far.fa-bell.fa-lg.fa-stack-2x.bell_icon
-        -#     %i.fas.fa-circle.n-circle.fa-stack-1x
-        -# - else 
-        -#   %i.far.fa-bell.fa-lg.bell_icon
-      -# = link_to user_path(current_user.id) do
-      -#   = icon('fas', 'user')
       = link_to "マイページ", user_path(current_user.id), class: "header_right__my_page"
+      = link_to user_path(current_user.id), class: "header_right__my_page_min" do
+        = icon('fas', 'user') 
     - else
       = link_to "ログイン", new_user_session_path, class: "header_right__sign_in"
       = link_to "新規登録", new_user_registration_path, class: "header_right__sign_up"
