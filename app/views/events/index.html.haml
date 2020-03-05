@@ -9,10 +9,10 @@
     イベント一覧
   .search_form
     %input#event_seach_field{:placeholder => "気になるイベントを検索してみよう", :type => "text"}/
-  #event_search_result
-  %ul.cards_box#event_index
-    = render 'shared/event_cards'
-    = paginate(@events)
+
+  %ul.cards_box#event_index#event_search_result
+    = render 'event_cards'
+    -# = paginate(@events)
   
   - if user_signed_in?
     = link_to new_event_path , class: "event_post_path" do

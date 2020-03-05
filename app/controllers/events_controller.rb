@@ -2,15 +2,26 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :join, :unjoin, :destroy]
   
   def index
-    @events = Event.all.order(date: :asc).page(params[:page]).per(10)
-  end
-  
-  def search
-    @events = Event.search(params[:keyword])
+    @events = Event.all.order(date: :asc)
+    @search_events = Event.search(params[:keyword])    
+    # @keywords = Event.search(params[:keyword])
+    # @keywords = params[:keyword]
+    # if @keywords.blank?
+    #   @keywords = Event.all.order(date: :asc)
+    # else
+    #   @searches = @keywords.split(/[[:blank:]]+/)
+    #   @searches.each do |search|
+    #     next if search == ""
+    #     @events = Event.where('name LIKE(?) OR date LIKE(?) OR open_time LIKE(?) end_time LIKE(?) place LIKE(?)', "%#{search[0]}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    #   end
+    # end
     respond_to do |format|
       format.html
       format.json
     end
+  end
+  
+  def search
   end
 
   def new

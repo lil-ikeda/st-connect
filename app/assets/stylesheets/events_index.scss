@@ -43,6 +43,23 @@
     padding: 1rem 0;
     font-weight: bold;
   }
+  .search_form {
+    #event_seach_field {
+      width: 80%;
+      border-radius: 1.5rem;
+      border: 1px solid #ccc;
+      outline: none;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .no_event {
+    text-align: center;
+    width: 100%;
+    padding: 3rem 0;
+    font-weight: bold;
+  }
 
   .cards_box {
     display: flex;
