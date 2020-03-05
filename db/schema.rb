@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_135346) do
     t.date "date", null: false
     t.text "image"
     t.string "place", null: false
-    t.time "open_time"
+    t.time "open_time", null: false
     t.time "end_time"
     t.integer "owner", null: false
     t.datetime "created_at", null: false

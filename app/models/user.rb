@@ -23,11 +23,10 @@ class User < ApplicationRecord
   has_many :events, through: :event_users
   
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by!({email: 'guest@example.com',image: "user_test_login.jpg"}) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
-      user.profile = SecureRandom.urlsafe_base64
-      user.image = "user_test_login.jpeg"
+      user.profile = SecureRandom.urlsafe_base64      
     end
   end
   

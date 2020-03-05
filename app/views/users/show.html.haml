@@ -3,7 +3,10 @@
   .user_info
     .user_info__upper
       .user_icon
-        = image_tag @user.image.url, class: "user_icon__content"
+        - if @user.image.present?
+          = image_tag @user.image.url, class: "user_icon__content"
+        - else
+          = image_tag "user_test_login.jpg", class: "user_icon__content"
       .user_links
         .user_links__instagram
           - if @user.url?
