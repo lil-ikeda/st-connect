@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリ概要
+ストリートスポーツのマッチングアプリです。
+一緒にイベントに出演するメンバーを探したり、練習相手を探すことができます。
 
-Things you may want to cover:
+# 作成した経緯
+ストリートシーンにおいて、主にチームスポーツのイベント運営を行っている知人より、「地方からのイベント集客に課題がある」との悩みを聞き、その課題を解決するために作成しました。地方では一緒にイベントに出るためのメンバー探しが難しいことが主な原因のようだったため、メンバー探しの手助けになるアプリが制作できればと考え、「フォロー機能」「マッチング機能」「チャット機能」「イベント作成機能」をメインに構成しました。
 
-* Ruby version
+#使用技術
 
-* System dependencies
+## バックエンド
+Ruby 2.5.1
+Rails 5.2.3
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## インフラストラクチャー
+・Mysql 5.6.46
+・AWS(EC2,ALB,RDS,Route53,VPC)
