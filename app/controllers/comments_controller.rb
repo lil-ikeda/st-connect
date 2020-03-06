@@ -1,8 +1,13 @@
 class CommentsController < ApplicationController
 
   def create
-    Comment.create(comment_params)
-    redirect_to event_path(params[:event_id]), notice: "コメントを投稿しました"
+    @comment = Comment.create(comment_params)
+    if @comment.save
+      redirect_to event_path(params[:event_id]), notice: "コメントを投稿しました"
+    else
+      flash[:alert] = "空欄のコメントは入力できません"
+      redirect_to event_path(params[:event_id])
+    end
   end
 
   def destroy
