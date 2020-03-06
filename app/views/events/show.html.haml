@@ -71,12 +71,12 @@
           = form_with(model: [@event, @comment], local: true) do |f|
             = f.text_area :text, placeholder: "コメントする", rows: "2"
             = f.submit "投稿する"
-      -#   - if @comments
-      -#     - @comments.each do |comment|
-      -#       .comment_form__content
-      -#         .comment_left
-      -#           = link_to user_path(comment.user_id), class: "comment_links" do
-      -#             = image_tag comment.user.image.url, class: "comment_form__content--img"
+        - if @comments
+          - @comments.each do |comment|
+            .comment_form__content
+              .comment_left
+                -# = link_to user_path(comment.user_id), class: "comment_links" do
+                = image_tag comment.user.image.url, class: "comment_form__content--img"
       -#         .comment_right
       -#           %strong
       -#             = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
