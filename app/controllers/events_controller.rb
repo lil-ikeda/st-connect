@@ -17,8 +17,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to root_path
+      redirect_to root_path, notice: "イベントを作成しました"
     else
+      flash[:alert] = "未入力の項目があります！"
       render :new
     end
   end
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
   
   def destroy
     @event.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "イベントを削除しました"
   end
   
   def join

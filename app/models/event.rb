@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :users, through: :event_users
   has_many :comments, foreign_key: :event_id, dependent: :destroy
   
+  validates :name, :date, :image, :place, :open_time, :end_time, :owner, :description, presence: true
   mount_uploader :image, ImageUploader
 
   def self.search(input)
