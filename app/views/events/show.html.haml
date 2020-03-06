@@ -51,11 +51,11 @@
       %li.user_tabs__item コメント
 
     .user_cards_box.show
-    -#   - @users.each do |user|
-    -#     = link_to user_path(user.id), class: "user_link" do
-    -#       .user_card
-    -#         .user_card__icon
-    -#           = image_tag user.image.url, class: "user_card__icon--content"
+      - @users.each do |user|
+        = link_to user_path(user.id), class: "user_link" do
+          .user_card
+            .user_card__icon
+              -# = image_tag user.image.url, class: "user_card__icon--content"
     -#         .user_card__name
     -#           = user.name.truncate(8)
     -#         .user_card__request
