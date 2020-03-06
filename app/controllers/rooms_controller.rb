@@ -1,10 +1,5 @@
 class RoomsController < ApplicationController
 
-  def new
-    @room = Room.new
-    # @room.users << current_user
-  end
-
   def create
     @room= Room.new
     if @room.save
@@ -19,7 +14,6 @@ class RoomsController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
     @room = Room.find(params[:id])
     @self = @room.users.find_by(id: current_user.id)
     @other_user = @room.users.where.not(id: current_user.id)[0]
