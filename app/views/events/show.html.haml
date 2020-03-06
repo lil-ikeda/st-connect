@@ -75,16 +75,16 @@
           - @comments.each do |comment|
             .comment_form__content
               .comment_left
-                -# = link_to user_path(comment.user_id), class: "comment_links" do
-                = image_tag comment.user.image.url, class: "comment_form__content--img"
-      -#         .comment_right
-      -#           %strong
-      -#             = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
-      -#           %p.comment_form__content--text
-      -#             = comment.text
-      -#         .comment_delete
-      -#           - if current_user == comment.user
-      -#             = link_to "削除", event_comment_path(comment.event.id, comment.id), method: :delete, class: "comment_delete__link"
-      -# - else
-      -#   コメントの投稿にはログインが必要です
+                = link_to user_path(comment.user_id), class: "comment_links" do
+                  = image_tag comment.user.image.url, class: "comment_form__content--img"
+              .comment_right
+                %strong
+                  = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
+                %p.comment_form__content--text
+                  = comment.text
+              .comment_delete
+                - if current_user == comment.user
+                  = link_to "削除", event_comment_path(comment.event.id, comment.id), method: :delete, class: "comment_delete__link"
+      - else
+        コメントの投稿にはログインが必要です
 = render 'shared/footer'
