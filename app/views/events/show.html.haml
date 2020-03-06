@@ -51,40 +51,40 @@
       %li.user_tabs__item コメント
 
     .user_cards_box.show
-      - @users.each do |user|
-        = link_to user_path(user.id), class: "user_link" do
-          .user_card
-            .user_card__icon
-              = image_tag user.image.url, class: "user_card__icon--content"
-            .user_card__name
-              = user.name.truncate(8)
-            .user_card__request
-              - if user_signed_in?
-                - if user.id == current_user.id
-                  = link_to "あなたです", user_path(user.id), class: "user_card__request--done_btn"
-                - else
-                  = link_to "リクエスト", "#", class: "user_card__request--btn"
+    -#   - @users.each do |user|
+    -#     = link_to user_path(user.id), class: "user_link" do
+    -#       .user_card
+    -#         .user_card__icon
+    -#           = image_tag user.image.url, class: "user_card__icon--content"
+    -#         .user_card__name
+    -#           = user.name.truncate(8)
+    -#         .user_card__request
+    -#           - if user_signed_in?
+    -#             - if user.id == current_user.id
+    -#               = link_to "あなたです", user_path(user.id), class: "user_card__request--done_btn"
+    -#             - else
+    -#               = link_to "リクエスト", "#", class: "user_card__request--btn"
 
     .user_cards_box
-      - if current_user
-        .comment_form
-          = form_with(model: [@event, @comment], local: true) do |f|
-            = f.text_area :text, placeholder: "コメントする", rows: "2"
-            = f.submit "投稿する"
-        - if @comments
-          - @comments.each do |comment|
-            .comment_form__content
-              .comment_left
-                = link_to user_path(comment.user_id), class: "comment_links" do
-                  = image_tag comment.user.image.url, class: "comment_form__content--img"
-              .comment_right
-                %strong
-                  = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
-                %p.comment_form__content--text
-                  = comment.text
-              .comment_delete
-                - if current_user == comment.user
-                  = link_to "削除", event_comment_path(comment.event.id, comment.id), method: :delete, class: "comment_delete__link"
-      - else
-        コメントの投稿にはログインが必要です
+      -# - if current_user
+      -#   .comment_form
+      -#     = form_with(model: [@event, @comment], local: true) do |f|
+      -#       = f.text_area :text, placeholder: "コメントする", rows: "2"
+      -#       = f.submit "投稿する"
+      -#   - if @comments
+      -#     - @comments.each do |comment|
+      -#       .comment_form__content
+      -#         .comment_left
+      -#           = link_to user_path(comment.user_id), class: "comment_links" do
+      -#             = image_tag comment.user.image.url, class: "comment_form__content--img"
+      -#         .comment_right
+      -#           %strong
+      -#             = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
+      -#           %p.comment_form__content--text
+      -#             = comment.text
+      -#         .comment_delete
+      -#           - if current_user == comment.user
+      -#             = link_to "削除", event_comment_path(comment.event.id, comment.id), method: :delete, class: "comment_delete__link"
+      -# - else
+      -#   コメントの投稿にはログインが必要です
 = render 'shared/footer'
