@@ -66,11 +66,11 @@
                   = link_to "リクエスト", "#", class: "user_card__request--btn"
 
     .user_cards_box
-      -# - if current_user
-      -#   .comment_form
-      -#     = form_with(model: [@event, @comment], local: true) do |f|
-      -#       = f.text_area :text, placeholder: "コメントする", rows: "2"
-      -#       = f.submit "投稿する"
+      - if current_user
+        .comment_form
+          = form_with(model: [@event, @comment], local: true) do |f|
+            = f.text_area :text, placeholder: "コメントする", rows: "2"
+            = f.submit "投稿する"
       -#   - if @comments
       -#     - @comments.each do |comment|
       -#       .comment_form__content
