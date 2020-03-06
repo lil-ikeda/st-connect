@@ -5,27 +5,38 @@
     = form_with model: @event, local: true do |f|
       .field
         = f.label :イメージ写真
-        %br/
-        .hidden_content
-          .label_content
-            %pre.label_box__text_visible クリックしてファイルをアップロード
-            = f.file_field :image
+        .field.image
+          // id "file"で、fileとdivを紐付けクリック時に連動
+          #img_field{:onclick => "$('#file').click()"}
+            // 画像があるときは画像を表示する
+            - if @event.image.url.present?
+              = image_tag(@event.image.url)
+            - else
+              = icon('fas', 'camera')
       .field
         = f.label :イベント名
         %br/
-        = f.text_area :name
+        = f.text_field :name, autofocus: true, autocomplete: "name"
       .field
         = f.label :開催場所
         %br/
-        = f.text_area :place  
+        = f.text_field :place, autofocus: true, autocomplete: "place"
       .field
         = f.label :開催日
         %br/
-        = f.text_area :date
+        .form_border_bottom
+          = f.date_select :date, autofocus: true, autocomplete: "date"
       .field
-        = f.label :開催時間
+        = f.label :時間
         %br/
-        = f.text_area :time
+        .form_border_bottom
+          = f.time_select :open_time
+          〜
+          = f.time_select :end_time
+      .field
+        = f.label :詳細
+        %br/
+        = f.text_area :description, autofocus: true, autocomplete: "descroption"
       .actions
         = f.submit "編集を適用する", class: "btn"
 = render 'shared/footer'

@@ -38,24 +38,32 @@ class EventsController < ApplicationController
   end
   
   def update
-    @event.update(event_params)
-    redirect_to event_path
+    if @event.update(event_params)
+      redirect_to event_path, nootice: "イベントの編集が完了しました"
+    else
+      flash[:alert] = "未入力の項目があります"
+      render :edit
+    end
   end
   
   def destroy
-    @event.destroy
-    redirect_to root_path, notice: "イベントを削除しました"
+    if @event.destroy
+      redirect_to root_path, notice: "イベントを削除しました"
+    else
+      falsh[:alert] = "イベントの削除に失敗しました"
+      render :show
+    end
   end
   
   def join
     EventUser.create(user_id: current_user.id, event_id: @event.id)
-    redirect_to event_path
+    redirect_to event_path, notice: "イベントに参加しました"
   end
   
   def unjoin
     event_user = EventUser.where(user_id: current_user.id, event_id: params[:id])[0]
     event_user.destroy
-    redirect_to event_path(params[:id])
+    redirect_to event_path(params[:id]), notice: "イベントの参加をやめました"
   end
 
   private
