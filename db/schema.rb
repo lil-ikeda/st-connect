@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_135346) do
     t.string "name", null: false
     t.text "image"
     t.text "profile", null: false
-    t.string "url"
+    t.string "instagram"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

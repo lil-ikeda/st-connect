@@ -3,25 +3,11 @@ class EventsController < ApplicationController
   
   def index
     @events = Event.all.order(date: :asc)
-    @search_events = Event.search(params[:keyword])    
-    # @keywords = Event.search(params[:keyword])
-    # @keywords = params[:keyword]
-    # if @keywords.blank?
-    #   @keywords = Event.all.order(date: :asc)
-    # else
-    #   @searches = @keywords.split(/[[:blank:]]+/)
-    #   @searches.each do |search|
-    #     next if search == ""
-    #     @events = Event.where('name LIKE(?) OR date LIKE(?) OR open_time LIKE(?) end_time LIKE(?) place LIKE(?)', "%#{search[0]}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-    #   end
-    # end
+    @search_events = Event.search(params[:keyword])
     respond_to do |format|
       format.html
       format.json
     end
-  end
-  
-  def search
   end
 
   def new
@@ -35,7 +21,6 @@ class EventsController < ApplicationController
     else
       render :new
     end
-    #fukaya @event.save ? redirect_to root_path : render :new
   end
 
   def show

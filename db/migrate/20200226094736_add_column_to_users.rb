@@ -3,6 +3,6 @@ class AddColumnToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :name, :string, null: false
     add_column :users, :image, :text
     add_column :users, :profile, :text, null: false
-    add_column :users, :url, :string
+    add_column :users, :instagram, :string
   end
 end
