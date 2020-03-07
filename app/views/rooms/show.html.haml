@@ -19,6 +19,5 @@
       = f.hidden_field :room_id, value: @room.id
       = f.hidden_field :user_id, value: @self.id
       = f.text_field :content, placeholder: "Aa", class: 'chat_form'
-      -# = f.submit '送信', class: 'chat_send fas camera'
       = button_tag type: 'submit', class: "chat_send" do
         = icon('fas', 'paper-plane')

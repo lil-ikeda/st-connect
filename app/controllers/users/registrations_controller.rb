@@ -11,6 +11,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    # user削除時にそのユーザーがownerのeventも合わせて削除する処理
+    events = Event.where(owner: @user.id)
+    events.each do |event|
+      event.destroy
+    end
+    @user.destroy
+    redirect_to root_path, notice: 'アカウントを削除しました。メンバーをお探しの際は、また是非ご利用ください！'
+  end
   # GET /resource/sign_up
   # def new
   #   super

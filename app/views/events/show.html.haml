@@ -31,7 +31,10 @@
             %tr
               %th 主催者
               %td
-                = link_to @owner.name, user_path(@owner.id), class: "owner_link"
+                - if @owner == nil
+                  %i.fas.fa-exclamation-triangle 削除済みのユーザーです
+                - else
+                  = link_to @owner.name, user_path(@owner.id), class: "owner_link"
 
     - if user_signed_in? && current_user.id == @event.owner
       = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
@@ -55,7 +58,10 @@
         = link_to user_path(user.id), class: "user_link" do
           .user_card
             .user_card__icon
-              = image_tag user.image.url, class: "user_card__icon--content"
+              - if user.email == "guest@example.com"
+                = image_tag "user_test_login.jpg", class: "user_card__icon--content"
+              - else
+                = image_tag user.image.url, class: "user_card__icon--content"
             .user_card__name
               = user.name.truncate(8)
             .user_card__request
