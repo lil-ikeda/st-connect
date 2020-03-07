@@ -6,26 +6,32 @@
     line-height: 60px;
     height: 60px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-weight: bold;
     font-size: 1.3rem;
     letter-spacing: 0.2rem;
     width: 100%;
-    background-color:  rgb(213, 245, 255);
+    background-color:  rgb(191, 240, 255);
     &__name {
       text-decoration: none;
       color: #333;
+      padding-right: 0.7rem;
+    }
+    .back_link {
+      color: #222;
+      padding-left: 0.5rem;
+      font-size: 1.5rem;
     }
   }
   .room_main {
     width: 100%;
-    margin: 0 auto;
     height: calc(100vh - 120px);
     font-size: 1.2rem;
     overflow: scroll;
     border-right: 1px solid #eee;
     border-left: 1px solid #eee;
     background-color: #fff;
+    box-sizing: border-box;
     .self_message {
       display: flex;
       justify-content: flex-end;
@@ -58,22 +64,38 @@
   .room_footer {
     bottom: 0;
     width: 100%;
-    background-color:  rgb(213, 245, 255);
+    background-color:  rgb(191, 240, 255);
     height: 60px;
     line-height: 60px;
-    padding: 0 2%;
-    &__box {
-      max-width: 768px;
-      margin: 0 auto;
+    padding: 0 5%;
+    box-sizing: border-box;
+    @media screen and (min-width:375px) {
+      padding: 0 10%;
     }
-      .chat_form {
+    @media screen and (min-width:1024px) {
+      padding: 0 15%;
+    }
+    .chat_form {
+      width: 70%;
+      margin-right: 2%;
+      border-radius: 1rem;
+      border: 1px solid #ccc;
+      outline: 0;
+      @media screen and (min-width:425px) {
+        margin-right: 5%;
+        width: 73%;
+      }
+      @media screen and (min-width:768px) {
         width: 80%;
-        margin-right: 2%;
-        // border-radius: 0.6rem;
-        outline: 0;
       }
-      .chat_send {
-        width: 13%;
-      }
+    }
+    .chat_send {
+      width: 10%;
+      min-width: 50px;
+      border: none;
+      font-size: 1.3rem;
+      color: rgb(0, 43, 236);
+      background-color: rgb(191, 240, 255);
+    }
   }
 }
