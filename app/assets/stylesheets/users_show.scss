@@ -125,17 +125,23 @@
       .user_tabs {
         display: flex;
         justify-content: space-evenly;
-        margin-bottom: 1rem;
+        margin: 1.5rem 0;
         &__item {
           padding: 0.5rem;
           color: #555;
           font-size: 0.4rem;
           cursor: pointer;
+          @media screen and (min-width: 425px) {
+            font-size: 1rem;
+          }
         }
         &__item.active {
           color: #222;
           border-bottom: 1px solid #222;
           font-weight: bold;
+          @media screen and (min-width:425px) {
+            font-size: 1rem;
+          }
         }
       }
       .user_cards_box {
