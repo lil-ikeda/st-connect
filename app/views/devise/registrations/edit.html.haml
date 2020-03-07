@@ -7,9 +7,7 @@
       .field
         = f.label :プロフィール写真
         .field.image
-          // id "file"で、fileとdivを紐付けクリック時に連動
           #regitration_img_field{:onclick => "$('#regitration_file').click()"}
-            // 画像があるときは画像を表示する
             - if @user.image.url.present?
               = image_tag @user.image.url, class: "user_edit_img"
             - else
@@ -32,7 +30,6 @@
         %br/
         = f.password_field :password, autocomplete: "new-password"
         - if @minimum_password_length
-          
           %em
             = @minimum_password_length
             文字以上
@@ -54,8 +51,8 @@
         %br/
         = f.password_field :current_password, autocomplete: "current-password"
       .actions
-        = f.submit "アカウントを更新する", class: "btn"
-      %p.actions
-        #{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してもよろしいですか？" }, method: :delete}
+        = f.submit t('.update'), class: "btn"
+      .actions
+        = link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete
       = link_to "トップページにもどる", root_path, class:"actions"
 = render 'shared/footer'
