@@ -64,23 +64,25 @@
   .room_footer {
     bottom: 0;
     width: 100%;
+    // min-width: 320px;
     background-color:  rgb(191, 240, 255);
     height: 60px;
     line-height: 60px;
-    padding: 0 5%;
+    padding: 0 0 0 5%;
     box-sizing: border-box;
     @media screen and (min-width:375px) {
-      padding: 0 10%;
+      padding: 0 0 0 6%;
     }
-    @media screen and (min-width:1024px) {
+    @media screen and (min-width:768px) {
       padding: 0 15%;
     }
     .chat_form {
-      width: 70%;
+      width: 73%;
       margin-right: 2%;
       border-radius: 1rem;
       border: 1px solid #ccc;
       outline: 0;
+      -webkit-appearance: none;
       @media screen and (min-width:425px) {
         margin-right: 5%;
         width: 73%;
@@ -94,7 +96,7 @@
       min-width: 50px;
       border: none;
       font-size: 1.3rem;
-      color: rgb(0, 43, 236);
+      color: #666;
       background-color: rgb(191, 240, 255);
     }
   }
