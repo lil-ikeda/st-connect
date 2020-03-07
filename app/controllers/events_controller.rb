@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to root_path, notice: "イベントを作成しました"
     else
-      flash[:alert] = "未入力の項目があります！"
+      flash[:alert] = "入力内容に誤りがあります。入力漏れ、文字数をご確認ください。"
       render :new
     end
   end

@@ -20,7 +20,8 @@
       .field
         = f.label :イベント名
         %br/
-        = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Battle Of The Year"
+        = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "バトルイベント"
+        (75文字以内)
       .field
         = f.label :開催場所
         %br/
@@ -43,7 +44,8 @@
       .field
         = f.label :詳細
         %br/
-        = f.text_area :description, autofocus: true, autocomplete: "descroption", placeholder: "日本一を決める大会です"
+        = f.text_area :description, autofocus: true, autocomplete: "descroption", placeholder: "初心者からでも気軽に参加できるダブルダッチ1on1のバトルイベントです。\nターナーは運営側で用意しますので、体一つで挑戦できます。音を感じて楽しんでいってください！！"
+        (255文字以内)
       .actions
         = f.submit "イベントを作成する", class: "btn"
 = render 'shared/footer'
