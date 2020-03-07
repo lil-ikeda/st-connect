@@ -35,8 +35,9 @@ $(function() {
   function addNoEvent() {
     let html = `
       <div class="no_event">
-        <i class="fas fa-exclamation-triangle"></i>
+        <i class="fas fa-exclamation-triangle">
           イベントが見つかりません
+        </i>
       </div>
     `
     $("#event_search_result").append(html);

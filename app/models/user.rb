@@ -24,7 +24,7 @@ class User < ApplicationRecord
     find_or_create_by!({email: 'guest@example.com'}) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
-      user.profile = SecureRandom.urlsafe_base64      
+      user.profile = "ゲストユーザーです。\nこのユーザーのプロフィールの編集及び削除機能は利用不可としております。\n予めご了承くださいませ。"
     end
   end
   
