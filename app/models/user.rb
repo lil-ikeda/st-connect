@@ -2,23 +2,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         
-  has_many :relationships, dependent: :destroy
-  has_many :followings, through: :relationships, source: :following
-  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'following_id'
+  # フォロー機能
+  has_many :relationships,  class_name: 'Relationship', foreign_key: 'user_id', dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'following_id', dependent: :destroy
+  has_many :followings, through: :relationships
   has_many :follwers, through: :passive_relationships, source: :user
-  
-  has_many :messages, dependent: :destroy
-  
-  
-  has_many :comments, foreign_key: :user_id, dependent: :destroy
-  
+  # 通知機能
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  
+  # メッセージ機能
+  has_many :messages, dependent: :destroy
   has_many :room_users, foreign_key: :user_id, dependent: :destroy
   has_many :rooms, through: :room_users
-  
+  # コメント機能
+  has_many :comments, foreign_key: :user_id, dependent: :destroy
+  # イベント機能
   has_many :event_users, foreign_key: :user_id, dependent: :destroy
   has_many :events, through: :event_users
   
