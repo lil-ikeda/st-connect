@@ -59,9 +59,12 @@
           .user_card
             .user_card__icon
               - if user.email == "guest@example.com"
-                = image_tag user.image.url, class: "user_card__icon--content"
+                  = image_tag "user_test_login.jpg", class: "user_card__icon--content"
               - else
-                = image_tag "user_test_login.jpg", class: "user_card__icon--content"
+                - if user.image.blank?
+                  = image_tag "user_test_login.jpg", class: "user_card__icon--content"
+                -else
+                  = image_tag user.image.url, class: "user_card__icon--content"
             .user_card__name
               = user.name.truncate(8)
             .user_card__request
