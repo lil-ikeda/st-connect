@@ -54,7 +54,7 @@ $(function() {
       $("#event_search_result").empty();
       console.log(events)
       if (events.length !== 0) {
-        $("#event_index").empty(); // 元々のevent一覧を非表示にする
+        $("#event_index").empty();
         events.forEach(function(event) {
           addEvent(event);
         });

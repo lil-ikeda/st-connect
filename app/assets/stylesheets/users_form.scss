@@ -1,5 +1,11 @@
 .custom-form {
-  padding: 30px 30px 0 30px;
+  padding: 15px 15px 0 15px;
+  @media screen and (min-width:425px) {
+    padding: 30px 30px 0 30px;
+  }
+  @media screen and (min-width:768px) {
+    padding: 30px 30px 0 30px;
+  }
   .form-title {
     font-size: 1.7rem;
     font-weight: bold;
@@ -8,82 +14,35 @@
   }
   .form-container {
     max-width: 440px;
-    width: 100%;
     padding: 0 15px 0 15px;
     margin: 0 auto;
     .field {
       margin-bottom: 1rem;
       font-weight: bold;
-      #user_name {
-        width: 100%;
+      #user_name,#user_email, 
+      #user_password, 
+      #user_password_confirmation, 
+      #user_instagram {
         border: none;
         border-bottom: 1px solid #212529;
         display: block;
-        width: 100%;
+        width: 95%;
         height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
         outline: 0;
-      }
-      #user_email {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #212529;
-        display: block;
-        width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        outline: 0;
-      }
-      #user_password {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #212529;
-        display: block;
-        width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        outline: 0;
-      }
-      #user_password_confirmation {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #212529;
-        display: block;
-        width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        outline: 0;
+        @media screen and (min-width:425px) {
+          width: 100%;
+        }
+        @media screen and (min-width:768px) {
+          width: 100%;
+        }
       }
       #user_profile {
         width: 100%;
         outline: 0;
         height: 12rem;
-        padding: 0.7rem;
-      }
-      #user_instagram {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #212529;
-        display: block;
-        width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        outline: 0;
       }
       .user_edit_img {
         width: 200px;
@@ -142,8 +101,12 @@
   display: block;
   color: #fff;
   background-color:#F35500;
-  font-size: 0.9rem;
   text-align: center;
   text-decoration: none;
-  padding: 1.5rem 0;
+  font-size: 0.5rem;
+  padding: 0.6rem 0;
+  @media screen and (min-width:768px) {
+    font-size: 0.9rem;
+    padding: 1.5rem 0;
+  }
 }
