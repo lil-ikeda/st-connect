@@ -11,10 +11,13 @@
         .notifications__left
           %span.notifications__img
             = link_to user_path(visitor) do
-              - if visitor.email == 'guest@example.com'
-                = image_tag "user_test_login.jpg", class:"notifications__img--content"
+              - if visitor.image.present?
+                - if visitor.email == 'guest@example.com'
+                  = image_tag "user_test_login.jpg", class:"notifications__img--content"
+                - else
+                  = image_tag visitor.image.url, class:"notifications__img--content"
               - else
-                = image_tag visitor.image.url, class:"notifications__img--content"
+                = image_tag "user_test_login.jpg", class:"notifications__img--content"
           %span.notifications__text
             %p
               = link_to visitor.name, user_path(visitor), class: "notifications__text--content"

@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if message.save
       redirect_to room_path(params[:room_id])
     else
-      flash[:alert] = "空のメッセージは送信できません"
+      flash[:alert] = "文字数を確認してください。"
       redirect_to room_path(params[:room_id])
     end
   end

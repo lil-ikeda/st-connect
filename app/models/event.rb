@@ -5,7 +5,6 @@ class Event < ApplicationRecord
   
   validates :name, :date, :image, :place, :open_time, :end_time, :owner, :description, presence: true
   validates :name, length: { in: 1..75 }
-  validates :description, length: { in: 1..255 }
   
   mount_uploader :image, ImageUploader
 
