@@ -75,8 +75,8 @@
           - @comments.each do |comment|
             .comment_form__content
               .comment_left
-                -# = link_to user_path(comment.user_id), class: "comment_links" do
-                -#   = image_tag comment.user.image.url, class: "comment_form__content--img"
+                = link_to user_path(comment.user.id), class: "comment_links" do
+                  = image_tag comment.user.image.url, class: "comment_form__content--img"
               .comment_right
                 %strong
                   = link_to comment.user.name, user_path(comment.user_id), class: "comment_form__content--name"
