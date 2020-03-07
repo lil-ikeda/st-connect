@@ -89,7 +89,6 @@
                 - if current_user == comment.user
                   = link_to "削除", event_comment_path(comment.event.id, comment.id), method: :delete, class: "comment_delete__link"
       - else
-        %i.fas.fa-exclamation-triangle
-        コメントの投稿にはログインが必要です
+        %i.fas.fa-exclamation-triangle コメントの投稿にはログインが必要です
         
 = render 'shared/footer'
