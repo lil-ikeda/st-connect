@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :check_guest, only: %i[update, destroy]
+  before_action :check_guest, only: %i[update destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。' if resource.email == 'guest@example.com'
   end
 
   def destroy
     # user削除時にそのユーザーがownerのeventも合わせて削除する処理
     events = Event.where(owner: @user.id)
-    events.each do |event|
-      event.destroy
-    end
+    events.each(&:destroy)
     @user.destroy
     redirect_to root_path, notice: 'アカウントを削除しました。メンバーをお探しの際は、また是非ご利用ください！'
   end

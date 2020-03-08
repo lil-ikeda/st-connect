@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def create
     message = Message.create(user_id: params[:user_id], room_id: params[:room_id], content: params[:content])
     if message.save
@@ -11,8 +10,8 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.require(:message).permit(:content, :user_id, :room_id)
   end
-
 end

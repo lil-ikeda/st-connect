@@ -1,7 +1,6 @@
 class RoomsController < ApplicationController
-
   def create
-    @room= Room.new
+    @room = Room.new
     if @room.save
       RoomUser.create(user_id: current_user.id, room_id: @room.id)
       redirect_to root_path, notice: 'マッチングが成立しました！'
@@ -10,8 +9,7 @@ class RoomsController < ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
   def show
     if user_signed_in?
@@ -24,7 +22,4 @@ class RoomsController < ApplicationController
       redirect_to new_user_session_path, alert: "チャット機能の利用にはログインが必要です"
     end
   end
-
-  
-
 end

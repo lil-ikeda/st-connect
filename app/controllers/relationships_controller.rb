@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:relationship][:following_id])
     following = current_user.follow(user)
     user.create_notification_follow!(current_user)
-    
+
     if following.save
       flash[:notice] = 'リクエストを送信しました'
     else
@@ -26,8 +26,8 @@ class RelationshipsController < ApplicationController
   end
 
   private
+
   def set_user
     user = User.find(params[:relationship][:following_id])
   end
-
 end
