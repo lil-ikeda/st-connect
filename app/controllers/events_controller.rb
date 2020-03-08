@@ -11,7 +11,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    if user_signed_in?
+      @event = Event.new
+    else
+      redirect_to new_user_session_path, alert: "イベントの作成にはログインが必要です"
+    end
   end
 
   def create
@@ -35,6 +39,11 @@ class EventsController < ApplicationController
   end
   
   def edit
+    if user_signed_in?
+      redirect_to root_path, alert: "イベントオーナー以外はイベントの編集ができません" unless @event.owner == current_user.id
+    else
+      redirect_to new_user_session_path, alert: "イベントの編集にはログインが必要です"
+    end
   end
   
   def update

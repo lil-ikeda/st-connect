@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   resources :relationships, only: [:create, :destroy]
-  resources :rooms, only: [:index, :new, :create, :show, :update]
+  resources :rooms, only: [:create, :show, :update]
   resources :messages, only: [:index, :create]
   resources :notifications, only: [:index]
 end
