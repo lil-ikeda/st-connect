@@ -1,4 +1,4 @@
-# README
+# Street Connect
 
 # アプリ概要
 ストリートスポーツのマッチングアプリです。<br>
