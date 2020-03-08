@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe EventsController, type: :controller do
+
   describe 'GET #new' do
     it "renders the :new template" do
       get :new
@@ -26,7 +27,9 @@ describe EventsController, type: :controller do
     it "populates an array of events ordered by date DESC" do
       events = create_list(:event, 3)
       get :index
+
       expect(assigns(:events)).to match(events.sort { |a, b| b.date <=> a.date })
+
     end
 
     it "renders the :index template" do
@@ -34,4 +37,5 @@ describe EventsController, type: :controller do
       expect(response).to render_template :index
     end
   end
+  
 end
