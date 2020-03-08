@@ -1,7 +1,19 @@
 = render 'shared/header'
+
+-# モーダル
+.modal.js_modal
+  .modal__bg.js_modal_close
+  .modal__content
+    %p ストリートスポーツのマッチングアプリです！
+    %br/
+    %p マッチングした相手とはアプリ内でチャットをすることができるので、一緒にイベントに出演するメンバーを探したり、練習相手を探すことができます。
+    .js_modal_close
+      =icon('fas', 'times')
+      とじる
+-# トップメッセージ
 .content_box
   .top_image
-    %p.top_message
+    %p.top_message.js_modal_open
       一緒にプレイできるチームメイトを探してみよう！
       %br
       STREET CONNECTとは？
