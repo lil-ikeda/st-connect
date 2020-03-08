@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :event_users, foreign_key: :user_id, dependent: :destroy
   has_many :events, through: :event_users
   
+  # バリデーション
+  validates :name, :profile, presence: true
+
   def self.guest
     find_or_create_by!({email: 'guest@example.com'}) do |user|
       user.password = SecureRandom.urlsafe_base64
