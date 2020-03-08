@@ -25,11 +25,11 @@ https://st-connect.net/<br>
 
 # 使用画面サンプル
 
-| トップページ | イベント作成画面 | コメント投稿画面 |
+| トップページ | イベント作成画面 | イベント詳細/コメント投稿画面 |
 ----|----|----
 | <img src="https://i.gyazo.com/9ad82c0e5fb18e0472498eb7bebda380.png" width="300px"> | <img src="https://i.gyazo.com/1011cb60a6810a1344abbf37f9fe776c.png" width="300px"> | <img src="https://i.gyazo.com/5e810e77ac5305eb74c8666b0ec95242.png" width="300px"> |
 
-| ユーザー詳細ページ | チャット画面 | リクエスト通知一覧画面 |
+| ユーザー詳細ページ/リクエスト機能 | チャット画面 | リクエスト通知一覧画面 |
 ----|----|----
 | <img src="https://i.gyazo.com/b4129fd78361057fd82d271ca0ca03fb.png" width="300px"> | <img src="https://i.gyazo.com/6e7f0cf017c7766d4dcbfd6d38903a38.png" width="300px"> | <img src="https://i.gyazo.com/e9aa6047f5bb9094b2bcc95c902a7fb2.png" width="300px"> |
 
