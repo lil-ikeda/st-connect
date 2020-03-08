@@ -126,7 +126,6 @@
       }
       &__lower {
         padding: 0.5rem 0.8rem;
-        // letter-spacing: 3px;
         font-size: 0.9rem;
         .event_name {
           font-weight: bold;
@@ -149,20 +148,22 @@
     }
     .event_post_path {
       text-decoration: none;
-      color: #333;
+      color: #222;
     }
       .event_post {
         width: 80px;
         height: 80px;
-        border-radius: 0.5rem;
+        border-radius: 50%;
         display: flex;
         flex-direction: column;
         position: fixed;
         right: 10px;
         bottom: 20px;
-        background-color: #FFF;
-        border: 1px solid #ccc;
-        opacity: 0.9;
+        background-color: #fff;
+        border: 1px solid #222;
+        opacity: 1;
+        box-shadow: 0px 4px 6px #ccc;
+        transition: all 0.3s ease 0s;
         @media screen and (min-width:425px){
           width: 120px;
           height: 120px;
@@ -181,16 +182,17 @@
           font-weight: bold;
           position: absolute;
           top: 17%;
-          left: 17%;
+          left: 14%;
           font-size: 0.5rem;
           @media screen and (min-width:425px) {
             font-size: 0.8rem;
+            left: 17%;
           }
         }
         &--icon i{
           position: absolute;
-          left: 25%;
-          top: 35%;
+          left: 32%;
+          top: 33%;
           font-size: 2rem;
           @media screen and (min-width:425px) {
             font-size: 3rem;
@@ -199,7 +201,7 @@
       }
     }
     .event_post:hover {
-      opacity: 1;
-      transition: 0.5s ease-out;
+      cursor: pointer;
+      transform: scale(1.1, 1.1);
     }
 }

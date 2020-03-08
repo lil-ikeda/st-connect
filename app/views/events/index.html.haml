@@ -13,22 +13,13 @@
   %ul.cards_box#event_index#event_search_result
     = render 'event_cards'
     -# = paginate(@events)
-  
-  - if user_signed_in?
-    = link_to new_event_path , class: "event_post_path" do
-      .event_post
-        .event_post__btn
-          %p.event_post__btn--text
-            イベント作成
-          .event_post__btn--icon
-            = icon('fas', 'users-cog')
-  - else
-    = link_to user_session_path, class: "event_post_path" do
-      .event_post
-        .event_post__btn
-          %p.event_post__btn--text
-            イベント作成
-          .event_post__btn--icon
-            = icon('fas', 'users-cog')
     
+  = link_to new_event_path , class: "event_post_path" do
+    .event_post
+      .event_post__btn
+        %p.event_post__btn--text
+          イベント作成
+        .event_post__btn--icon
+          = icon('fas', 'plus')
+
 = render 'shared/footer'
