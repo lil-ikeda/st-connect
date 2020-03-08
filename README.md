@@ -57,5 +57,5 @@ https://st-connect.net/<br>
   - S3
 
 ## クラウドアーキテクチャ
-AWSの
+AWSのベストプラクティスの一つに乗っ取って、EC2の冗長化をしました。
 [![Image from Gyazo](https://i.gyazo.com/a0d8ff1556470a7b5514adca7d4ac0cf.png)](https://gyazo.com/a0d8ff1556470a7b5514adca7d4ac0cf)
