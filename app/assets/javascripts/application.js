@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.jscroll.min.js
 //= require rails-ujs
 //= require activestorage
 //= require_tree .

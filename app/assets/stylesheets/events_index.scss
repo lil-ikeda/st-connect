@@ -29,6 +29,14 @@
   padding: 1rem 0;
 }
 
+// ページネーション
+ul.skill-list {
+  padding: 0;
+}
+nav.pagination {
+  display: none;
+}
+// ページネーションここまで
 
 .content_box {
   max-width: 960px;
