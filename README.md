@@ -55,7 +55,9 @@
   - EC2
   - RDS
   - S3
+- **Docker**
+  - Docker 19.03.5
+  - docker-compose 1.25.4
 
 ## クラウドアーキテクチャ
-AWSのベストプラクティスの一つに乗っ取って、EC2の冗長化をしました。
-[![Image from Gyazo](https://i.gyazo.com/a0d8ff1556470a7b5514adca7d4ac0cf.png)](https://gyazo.com/a0d8ff1556470a7b5514adca7d4ac0cf)
+[![Image from Gyazo](https://i.gyazo.com/f675b4455d8e40dfb81d4b210efc1301.png)](https://gyazo.com/f675b4455d8e40dfb81d4b210efc1301)
