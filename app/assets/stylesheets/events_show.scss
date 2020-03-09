@@ -113,6 +113,9 @@
       font-size: 1rem;
       }
     }
+    .comments {
+      width: 100%;
+    }
     .comment_form {
       width: 100%;
       #comment_text {
@@ -147,6 +150,7 @@
           padding-left: 1rem;
           word-wrap: break-word;
           width: 100%;
+          
         }
           &--img {
             height: 50px;
@@ -163,14 +167,27 @@
           }
           &--text {
             font-size: 0.6rem;
-            max-width: 85%;
+            max-width: 80%;
+            @media screen and (min-width:1024px) {
+              max-width: 85%;
+            }
           }
           .comment_delete {
+            .comment_time {
+              position: absolute;
+              right: 0.5rem;
+              top: 0.5rem;
+              font-size: 0.5rem;
+              text-decoration: none;
+              min-width: 2rem;
+              display: block;
+              color: #999;
+            }
             &__link {
               position: absolute;
               right: 0.5rem;
               bottom: 0.5rem;
-              font-size: 0.6rem;
+              font-size: 0.7rem;
               text-decoration: none;
               color: #999;
               min-width: 2rem;

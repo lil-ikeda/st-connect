@@ -10,7 +10,6 @@
       .notifications
         .notifications__left
           %span.notifications__img
-            -# = link_to user_path(visitor.id) do
             - if visitor.image.present?
               - if visitor.email == 'guest@example.com'
                 = image_tag "user_test_login.jpg", class:"notifications__img--content"

@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
+
+
   def create
     @comment = Comment.create(comment_params)
-    if @comment.save
-      redirect_to event_path(params[:event_id]), notice: "コメントを投稿しました"
-    else
-      flash[:alert] = "文字数を確認してください"
-      redirect_to event_path(params[:event_id])
+    respond_to do |format|
+      format.html { redirect_to event_path(params[:event_id])  }
+      format.json
     end
   end
 
