@@ -22,9 +22,10 @@
   .search_form
     %input#event_seach_field{:placeholder => "気になるイベントを検索してみよう", :type => "text"}/
 
-  %ul.cards_box#event_index#event_search_result
-    = render 'event_cards'
-    -# = paginate(@events)
+  %ul.skill-list.jscroll
+    .cards_box#event_index#event_search_result
+      = render 'event_cards'
+      -# = paginate(@events)
     
   = link_to new_event_path , class: "event_post_path" do
     .event_post

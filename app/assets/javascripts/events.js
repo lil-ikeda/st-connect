@@ -1,3 +1,4 @@
+// 検索機能
 $(function() {
   function addEvent(event) {
     let html = `
@@ -68,5 +69,13 @@ $(function() {
     .fail(function() {
       alert("通信エラーです。イベントが表示できません");
     });
+  });
+});
+
+// ページネーション
+$(function() {
+  $('.jscroll').jscroll({
+    contentSelector: '.skill-list',
+    nextSelector: 'span.next a'
   });
 });

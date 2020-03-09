@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :move_to_index, only: [:new, :edit]
 
   def index
-    @events = Event.all.order(date: :asc)
+    @events = Event.all.order(date: :asc).page(params[:page]).per(6)
     @search_events = Event.search(params[:keyword])
     respond_to do |format|
       format.html
