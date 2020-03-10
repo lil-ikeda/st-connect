@@ -37,11 +37,7 @@ jobs:
     # Database setup
     
     # run tests!
-    - run:
-        name: Run rspec
-        command: |
-          bundle exec rspec
-
+    
     # collect reports
     - store_test_results:
         path: /tmp/test-results
