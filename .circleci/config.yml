@@ -23,10 +23,8 @@ jobs:
     - run:
         name: setup bundler
         command: |
-          sudo gem update --system
-          sudo gem uninstall bundler -v 1.17.3
-          sudo rm /usr/local/bin/bundle
-          sudo rm /usr/local/bin/bundler
+          gem update --system
+          gem install bundler
     - run:
         name: install dependencies
         command: |
