@@ -12,6 +12,7 @@ jobs:
         MYSQL_DATABASE: circleci-example-for-rails_test
         MYSQL_ROOT_HOST: '%'
         MYSQL_PORT: 3306
+        BUNDLER_VERSION: 2.1.0
     working_directory: ~/st-connect # 処理を実行するディレクトリ
     steps: # コンテナ内で実行される処理一覧,jobsを定義する場合stepsも必須,ないとエラー発生
     - checkout
@@ -21,8 +22,11 @@ jobs:
         - v1-dependencies-
     - run:
         name: install dependencies
-        command: |
-          gem install bundler -v 1.17.3
+        command: | # コンテナ上のbundlerのバージョンを2.1.0にする
+          gem uninstall bundler
+          rm /usr/local/bin/bundle
+          rm /usr/local/bin/bundler
+          gem install bundler -v 2.1.0
           bundle install --jobs=4 --retry=3 --path vendor/bundle
     - save_cache:
         paths:
