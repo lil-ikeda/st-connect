@@ -38,9 +38,7 @@ jobs:
     - run:
         name: Prepare db
         command: |
-          bundle exec rails db:create
           bundle exec rails db:schema:load --trace
-          bundle exec rails db:migrate
     # run tests!
     - run:
         name: Run rspec
