@@ -1,46 +1,127 @@
-version: 2.1
+version: 2
 jobs:
-  build:    
+  build:
     docker:
-    - image: circleci/ruby:2.5.1-node-browsers # ruby2.5.1を利用していたため
-      environment:
-        RAILS_ENV: test
-    - image: circleci/mysql:5.6.46-ram
-      environment:
-        MYSQL_ALLOW_EMPTY_PASSWORD: true
-        MYSQL_USER: root
-        MYSQL_DATABASE: circleci-example-for-rails_test
-        MYSQL_ROOT_HOST: '%'
-        MYSQL_PORT: 3306
-        BUNDLER_VERSION: 2.1.0
-    working_directory: ~/st-connect # 処理を実行するディレクトリ
-    steps: # コンテナ内で実行される処理一覧,jobsを定義する場合stepsも必須,ないとエラー発生
+      # Ruby
+      - image: circleci/ruby:2.5.1-node-browers
+        enviroment:
+          - RAILS_ENV: test
+      # Mysql
+      - image: circleci/mysql:5.6
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+
+  working_directory: ~/repo
+
+  steps:
     - checkout
+
     - restore_cache:
         keys:
-        - v1-dependencies-{{ checksum "Gemfile.lock" }}
-        - v1-dependencies-
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          - v1-dependencies-
+
     - run:
-        name: setup bundler
+        name: update node
+        command: |
+            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+
+    - run:
+        name: install dependencies
         command: |
           rm Gemfile.lock
           gem update --system
           gem install bundler
-    - run:
-        name: install dependencies
-        command: |
           bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+    - run:
+          name: install dependencies
+          command: yarn install
+
     - save_cache:
-        paths:
-        - ./vendor/bundle
-        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-    # Database setup
+          paths:
+            - ./vendor/bundle
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+
+    # データベースセットアップ
+    - run: mv config/database.yml.ci config/database.yml
+    - run: bundle exec rake db:create
+    - run: bundle exec rake db:schema:load
+
+    # Rspec
+      - run:
+          name: run rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+    # テストリザルト
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+          
+# version: 2.1
+# jobs:
+#   build:    
+#     docker:
+#     - image: circleci/ruby:2.5.1-node-browsers # ruby2.5.1を利用していたため
+#       environment:
+#         RAILS_ENV: test
+#     - image: circleci/mysql:5.6.46-ram
+#       environment:
+#         MYSQL_ALLOW_EMPTY_PASSWORD: true
+#         MYSQL_USER: root
+#         MYSQL_DATABASE: circleci-example-for-rails_test
+#         MYSQL_ROOT_HOST: '%'
+#         MYSQL_PORT: 3306
+#         BUNDLER_VERSION: 2.1.0
+#     working_directory: ~/st-connect # 処理を実行するディレクトリ
+#     steps: # コンテナ内で実行される処理一覧,jobsを定義する場合stepsも必須,ないとエラー発生
+#     - checkout
+#     - restore_cache:
+#         keys:
+#         - v1-dependencies-{{ checksum "Gemfile.lock" }}
+#         - v1-dependencies-
+#     - run:
+#         name: setup bundler
+#         command: |
+#           rm Gemfile.lock
+#           gem update --system
+#           gem install bundler
+#     - run:
+#         name: install dependencies
+#         command: |
+#           bundle install --jobs=4 --retry=3 --path vendor/bundle
+#     - save_cache:
+#         paths:
+#         - ./vendor/bundle
+#         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+#     # Database setup
     
-    # run tests!
-    
-    # collect reports
-    - store_test_results:
-        path: /tmp/test-results
-    - store_artifacts:
-        path: /tmp/test-results
-        destination: test-results
+#     # run tests!
+#     - run:
+#         name: Run rspec
+#         command: |
+#           mkdir /tmp/test-results
+#           TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+#           bundle exec rspec --format progress --color --format documentation
+
+#     # collect reports
+#     - store_test_results:
+#         path: /tmp/test-results
+#     - store_artifacts:
+#         path: /tmp/test-results
+#         destination: test-results
