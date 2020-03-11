@@ -13,6 +13,9 @@ jobs:
         MYSQL_ROOT_HOST: '%'
         MYSQL_PORT: 3306
         BUNDLER_VERSION: 2.1.0
+        aws_access_key_id: Rails.application.credentials[:aws][:access_key_id]
+        aws_secret_access_key: Rails.application.credentials[:aws][:secret_access_key]
+        
     working_directory: ~/st-connect # 処理を実行するディレクトリ
     
     steps: # コンテナ内で実行される処理一覧,jobsを定義する場合stepsも必須,ないとエラー発生
