@@ -16,6 +16,9 @@ WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
+# bundlerのバージョンを2系にする
+ENV BUNDLER_VERSION='2.0.2'
+RUN gem install bundler --no-document -v '2.0.2'
 
 # Gemfileのbundle install
 RUN bundle install

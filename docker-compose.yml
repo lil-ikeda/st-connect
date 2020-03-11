@@ -15,5 +15,7 @@ services:
       - .:/app_name
     ports:
       - "3000:3000"
+    tty: true
+    stdin_open: true
     links:
       - db

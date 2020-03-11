@@ -37,11 +37,6 @@ jobs:
         - ./vendor/bundle
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
     # Database setup
-    - run:
-        name: AWS_credentials_test
-        command: |
-            echo "${aws_access_key_id}"
-            echo "${secret_access_key}"
     - run: mv config/database.yml.ci config/database.yml
     - run: bundle exec rails db:create
     - run: bundle exec rails db:schema:load
