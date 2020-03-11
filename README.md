@@ -47,6 +47,7 @@
   - JQuery
 
 ## インフラストラクチャー
+- **CircleCI**
 - **AWS**
   - Route53
   - ACM
@@ -59,5 +60,4 @@
   - Docker 19.03.5
   - docker-compose 1.25.4
 
-## クラウドアーキテクチャ
-[![Image from Gyazo](https://i.gyazo.com/f675b4455d8e40dfb81d4b210efc1301.png)](https://gyazo.com/f675b4455d8e40dfb81d4b210efc1301)
+## クラウドアーキテクチャ[![Image from Gyazo](https://i.gyazo.com/94e9265d0eac7d9076cb9705d3dbba71.png)](https://gyazo.com/94e9265d0eac7d9076cb9705d3dbba71)
