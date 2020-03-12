@@ -49,7 +49,8 @@
 
 ## インフラストラクチャー
 - **CircleCI**
-  - CI/CD
+  - Pushに対してCI
+  - MasterブランチからのPushに対してCD
 - **AWS**
   - Route53
   - ACM
