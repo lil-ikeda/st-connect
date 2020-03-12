@@ -12,7 +12,7 @@ jobs:
         MYSQL_DATABASE: circleci-example-for-rails_test
         MYSQL_ROOT_HOST: '%'
         MYSQL_PORT: 3306
-        BUNDLER_VERSION: 2.1.0
+        BUNDLER_VERSION: 2.0.2
 
     working_directory: ~/st-connect # 処理を実行するディレクトリ
     
