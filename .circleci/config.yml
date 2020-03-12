@@ -60,7 +60,7 @@ jobs:
         name: "authorize-security-group-ingress"
         command: |
           IP=`curl -s ifconfig.me`
-          echo "#!/bin/bash" > ./sg.sh
+          echo "#!/bin" > ./sg.sh
           echo "aws configure set region ap-northeast-1" >> ./sg.sh
           echo "aws ec2 authorize-security-group-ingress --group-id sg-02a9b1c9db84fa2db --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
           bash ./sg.sh
@@ -76,4 +76,3 @@ jobs:
           fi
           bundle exec cap production deploy
 
-          
