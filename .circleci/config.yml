@@ -55,7 +55,7 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     # circleciからSecurityGroupへのアクセス許可
-    - run: sudo pip install awscli
+    # - run: sudo pip install awscli
     - run:
         name: "authorize-security-group-ingress"
         command: |
