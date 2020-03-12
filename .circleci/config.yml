@@ -61,5 +61,4 @@ jobs:
     - deploy:
         name: Capistrano deploy
         command:
-          gem install capistrano -v 3.12.0
           bundle exec cap production deploy
