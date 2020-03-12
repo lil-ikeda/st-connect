@@ -55,10 +55,10 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     # deploy
-    # - add_ssh_keys:
-    #     fingerprints:
-    #       - {{fingerprints}}
-    # - deploy:
-    #     name: Capistrano deploy
-    #     command:
-    #       bundle exec cap production deploy
+    - add_ssh_keys:
+        fingerprints:
+          - "94:a9:a2:fb:ad:c9:54:73:62:c0:70:ca:a9:d7:18:5f"
+    - deploy:
+        name: Capistrano deploy
+        command:
+          bundle exec cap production deploy
