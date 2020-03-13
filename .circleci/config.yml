@@ -17,7 +17,7 @@ jobs:
     working_directory: ~/st-connect 
     
     steps:
-    - checkout
+    - checkout # st-connect上にgitpullする
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -55,17 +55,15 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     # circleciからSecurityGroupへのアクセス許可
-    - image: circleci/python:3.6-jessie
-    - image: buildpack-deps:trusty
-    - run: sudo pip install awscli
-    - run:
-        name: "authorize-security-group-ingress"
-        command: |
-          IP=`curl -s ifconfig.me`
-          echo "#!/bin/zsh" > ./sg.sh
-          echo "aws configure set region ap-northeast-1" >> ./sg.sh
-          echo "aws ec2 authorize-security-group-ingress --group-id sg-02a9b1c9db84fa2db --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-          bash ./sg.sh
+    # - run: sudo pip install awscli
+    # - run:
+    #     name: "authorize-security-group-ingress"
+    #     command: |
+    #       IP=`curl -s ifconfig.me`
+    #       echo "#!/bin/zsh" > ./sg.sh
+    #       echo "aws configure set region ap-northeast-1" >> ./sg.sh
+    #       echo "aws ec2 authorize-security-group-ingress --group-id sg-02a9b1c9db84fa2db --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+    #       bash ./sg.sh
     
     # deploy
     - add_ssh_keys:
