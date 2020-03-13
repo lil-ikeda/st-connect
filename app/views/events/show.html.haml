@@ -4,7 +4,7 @@
     .event_icon
       - if @event.date < DateTime.now
         %p.event_end_message
-          このイベントは終了しました
+          %i.fas.fa-exclamation-triangle このイベントは終了しました
         = image_tag @event.image.url, class: "event_icon__content"
       -else
         = image_tag @event.image.url, class: "event_icon__content"
