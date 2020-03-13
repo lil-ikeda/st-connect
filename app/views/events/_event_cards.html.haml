@@ -1,6 +1,6 @@
 - @events.each do |event|
   = link_to event_path(event), class: "event_link" do
-    .event_card
+    .event_card.user_cards_box.show
       .event_card__upper
         .event_image
           = image_tag event.image.url ,class: "event_image__content"
