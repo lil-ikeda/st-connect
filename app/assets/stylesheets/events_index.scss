@@ -88,18 +88,18 @@ nav.pagination {
     padding: 1rem 0;
     font-weight: bold;
   }
-  .search_form {
-    #event_seach_field {
-      width: 80%;
-      border-radius: 1.5rem;
-      border: 1px solid #ccc;
-      outline: none;
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 1.5rem;
-      -webkit-appearance: none;
-    }
+  
+  #event_seach_field {
+    width: 80%;
+    border-radius: 1.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    -webkit-appearance: none;
   }
+  
   .no_event {
     text-align: center;
     width: 100%;
@@ -107,7 +107,16 @@ nav.pagination {
     font-weight: bold;
   }
 
-  .cards_box {
+  .event_tab {
+    border: none;
+    justify-content: center;
+    &__item {
+      font-weight: bold;
+    }
+  }
+
+  .cards_box,
+  #event_search_result {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

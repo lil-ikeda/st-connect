@@ -54,7 +54,6 @@ $(function() {
     })
     .done(function(events) {
       $("#event_search_result").empty();
-      console.log(events)
       if (events.length !== 0) {
         $("#event_index").empty();
         events.forEach(function(event) {
