@@ -55,25 +55,17 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     # circleciからSecurityGroupへのアクセス許可
-    # - run: sudo pip install awscli
-    # - run:
-    #     name: "authorize-security-group-ingress"
-    #     command: |
-    #       IP=`curl -s ifconfig.me`
-    #       echo "#!/bin/zsh" > ./sg.sh
-    #       echo "aws configure set region ap-northeast-1" >> ./sg.sh
-    #       echo "aws ec2 authorize-security-group-ingress --group-id sg-02a9b1c9db84fa2db --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-    #       bash ./sg.sh
-    deploy:
-      machine:
-        image: circleci/classic:edge
-      steps:
-          - checkout
-          # CircleCI に登録した秘密鍵を呼び出す
-          - add_ssh_keys:
-          # CircleCI に登録した環境変数を使って SSH
-          - run: ssh ${USER_NAME}@${HOST_NAME} 'cd var/www/st-connect && git pull'
-
+    - run: sudo pip install awscli
+    - run:
+        name: "authorize-security-group-ingress"
+        command: |
+          IP=`curl -s ifconfig.me`
+          echo "#!/bin/zsh" > ./sg.sh
+          echo "aws configure set region ap-northeast-1" >> ./sg.sh
+          echo "aws ec2 authorize-security-group-ingress --group-id sg-02a9b1c9db84fa2db --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+          bash ./sg.sh
+    
+    # deploy
     - add_ssh_keys:
         fingerprints:
           - "94:a9:a2:fb:ad:c9:54:73:62:c0:70:ca:a9:d7:18:5f"
