@@ -54,6 +54,7 @@ jobs:
     - store_artifacts:
         path: /tmp/test-results
         destination: test-results
+        
     # circleciからSecurityGroupへのアクセス許可
     # - run: sudo pip install awscli
     # - run:
