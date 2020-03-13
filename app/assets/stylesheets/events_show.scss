@@ -11,11 +11,23 @@
   }
   .event_icon {
     text-align: center;
+    position: relative;
+    max-height: 400px;
     &__content {
       width: 100%;
       max-height: 400px;
       border-radius: 0.25rem;
       object-fit: cover;
+    }
+    .event_end_message {
+      color: #fff;
+      background: rgba(0,0,0,.6);
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 10rem);
+      padding: 5rem 0;
+      font-weight: bold;
+      border-radius: 0.25rem;
     }
   }
   table {
