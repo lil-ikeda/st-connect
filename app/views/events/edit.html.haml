@@ -27,11 +27,14 @@
         .form_border_bottom
           = f.date_select :date, autofocus: true, autocomplete: "date"
       .field
-        = f.label :時間
+        = f.label :開始時間
         %br/
         .form_border_bottom
           = f.time_select :open_time
-          〜
+      .field
+        = f.label :終了時間
+        %br/
+        .form_border_bottom
           = f.time_select :end_time
       .field
         = f.label :詳細
