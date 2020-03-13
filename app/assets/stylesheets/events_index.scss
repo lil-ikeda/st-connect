@@ -36,6 +36,7 @@ ul.skill-list {
 nav.pagination {
   display: none;
 }
+
 // ページネーションここまで
 
 .content_box {
@@ -116,7 +117,8 @@ nav.pagination {
   }
 
   .cards_box,
-  #event_search_result {
+  #event_search_result,
+  .jscroll-inner {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
