@@ -68,6 +68,7 @@ jobs:
     - add_ssh_keys:
         fingerprints:
           - "94:a9:a2:fb:ad:c9:54:73:62:c0:70:ca:a9:d7:18:5f"
+    - run: ssh-add ~/.ssh/st-connect-keypair.pem
     - deploy:
         name: Capistrano deploy
         command: |
