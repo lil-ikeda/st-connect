@@ -3,11 +3,11 @@ require 'rails_helper'
 describe EventsController, type: :controller do
 
   describe 'GET #new' do
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
-    end
-  end
+  #   it "renders the :new template" do
+  #     get :new
+  #     expect(response).to render_template :new
+  #   end
+  # end
 
   # describe 'GET #edit' do
   #   it "assigns the requested event to @event" do
@@ -32,9 +32,9 @@ describe EventsController, type: :controller do
 
   #   end
 
-    # it "renders the :index template" do
-    #   get :index
-    #   expect(response).to render_template :index
-    # end
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template :index
+    end
   
 end
