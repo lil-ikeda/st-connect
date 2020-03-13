@@ -2,9 +2,10 @@ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :join, :unjoin, :destroy]
   before_action :move_to_index, only: [:new, :edit]
+  require "date"
 
   def index
-    @events = Event.all.order(date: :asc).page(params[:page]).per(6)
+    @events = Event.where("events.date > ?", DateTime.now).order(date: :asc).page(params[:page]).per(6)
     @new_events = Event.all.order(created_at: :asc).page(params[:page]).per(6)
     @search_events = Event.search(params[:keyword])
     respond_to do |format|

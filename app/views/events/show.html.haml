@@ -2,8 +2,13 @@
 .event_info
   .event_info__upper
     .event_icon
-      = image_tag @event.image.url, class: "event_icon__content"
-    
+      - if @event.date < DateTime.now
+        %p.event_end_message
+          このイベントは終了しました
+        = image_tag @event.image.url, class: "event_icon__content"
+      -else
+        = image_tag @event.image.url, class: "event_icon__content"
+
     .event_info__text_box
       .event_info__text_box--name
         = @event.name
