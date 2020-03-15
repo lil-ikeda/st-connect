@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   before_action :set_event, only: [:show, :edit, :update, :join, :unjoin, :destroy]
   before_action :move_to_index, only: [:new, :edit]
   require "date"
@@ -86,5 +85,4 @@ class EventsController < ApplicationController
   def move_to_index
     redirect_to new_user_session_path, alert: "ログインしてください" unless user_signed_in?
   end
-
 end

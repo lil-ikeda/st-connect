@@ -21,12 +21,8 @@
     イベント一覧
   .search_form
     %input#event_seach_field{:placeholder => "気になるイベントを検索してみよう", :type => "text"}/
-  -# イベントタブ
-  -# .user_info__lower
-  -#   %ul.user_tabs.event_tab
-  -#     %li.user_tabs__item.event_tab__item.active 新着順
-  -#     %li.user_tabs__item.event_tab__item 開催日順
-
+  
+  .user_info__lower
   %ul.skill-list.jscroll#event_search_result
     .cards_box#event_index
       = render 'event_cards'

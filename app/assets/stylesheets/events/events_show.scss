@@ -177,10 +177,16 @@
             color: #222;
             font-weight: bold;
             font-size: 0.6rem;
+            @media screen and (min-width:768px) {
+              font-size: 0.8rem;
+            }
           }
           &--text {
             font-size: 0.6rem;
             max-width: 80%;
+            @media screen and (min-width:768px) {
+              font-size: 0.8rem;
+            }
             @media screen and (min-width:1024px) {
               max-width: 85%;
             }
@@ -195,16 +201,22 @@
               min-width: 2rem;
               display: block;
               color: #999;
+              @media screen and (min-width:768px) {
+                font-size: 0.7rem;
+              }
             }
             &__link {
               position: absolute;
               right: 0.5rem;
               bottom: 0.5rem;
-              font-size: 0.7rem;
+              font-size: 0.6rem;
               text-decoration: none;
               color: #999;
               min-width: 2rem;
               display: block;
+              @media screen and (min-width:768px) {
+                font-size: 0.8rem;
+              }
             }
           }
         }
