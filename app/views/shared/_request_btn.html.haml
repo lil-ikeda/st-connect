@@ -2,11 +2,11 @@
   - if user_signed_in? && current_user.following?(@user)
     = form_for(current_user.relationships.find_by(following_id: @user.id), html: { method: :delete }) do |f| # 自分のrelationshipの中に、@userがいるかどうか？
       = f.hidden_field :following_id, value: @user.id
-      = f.submit 'リクエスト済み', data:{ confirm: "リクエストを解除すると、#{@user.name}さんとのメッセージは全て削除されます。\n本当にリクエストを解除しますか？", cancel: '解除しない', commit: 'リクエストを解除する'}, class: 'follow_done_btn'
+      = f.submit 'フォロー済み', data:{ confirm: "フォローを解除すると、#{@user.name}さんとのメッセージは全て削除されます。\n本当にフォローを解除しますか？", cancel: '解除しない', commit: 'フォローを解除する'}, class: 'follow_done_btn'
 
   - else
     = form_for(current_user.relationships.build) do |f|
       = f.hidden_field :following_id, value: @user.id
-      = f.submit 'リクエストを送る', class: 'follow_btn'
+      = f.submit 'フォローを送る', class: 'follow_btn'
 - else
-  %i.fas.fa-exclamation-triangle リクエストやチャット機能の利用にはログインが必要です
+  %i.fas.fa-exclamation-triangle フォローやチャット機能の利用にはログインが必要です

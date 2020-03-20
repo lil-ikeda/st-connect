@@ -1,6 +1,6 @@
 = render 'shared/header'
 .content_box
-  .content_title リクエスト通知一覧
+  .content_title フォロー通知一覧
 
   
   - if @notifications.exists?
@@ -22,7 +22,7 @@
               = link_to visitor.name, user_path(visitor), class: "notifications__text--content"
               が
               %br
-              あなたにリクエストしました
+              あなたにフォローしました
         .notifications__right
           = time_ago_in_words(notification.created_at).upcase
   - else

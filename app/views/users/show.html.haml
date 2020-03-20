@@ -31,8 +31,8 @@
     .user_info__lower
       %ul.user_tabs
         %li.user_tabs__item.active 作成したイベント
-        %li.user_tabs__item リクエスト済
-        %li.user_tabs__item リクエストされた
+        %li.user_tabs__item フォロー済
+        %li.user_tabs__item フォローされた
         %li.user_tabs__item マッチ中
       -# 作成したイベント
       .user_cards_box.show
@@ -43,7 +43,7 @@
               .event_mini_card__name
                 = event.name.truncate(14)
       
-        -# リクエスト済みのユーザー
+        -# フォロー済みのユーザー
       .user_cards_box
         - @following_users.each do |user|
           = link_to user_path(user), class: "user_link" do
@@ -56,7 +56,7 @@
               .user_card__name
                 = user.name
 
-      -# リクエストされたユーザー
+      -# フォローされたユーザー
       .user_cards_box
         - @followed_users.each do |user|
           = link_to user_path(user), class: "user_link" do

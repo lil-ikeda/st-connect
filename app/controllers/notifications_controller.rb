@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
         notification.update_attributes(checked: true)
       end
     else
-      redirect_to root_path, alert: "リクエスト通知の閲覧にはログインが必要です"
+      redirect_to root_path, alert: "フォロー通知の閲覧にはログインが必要です"
     end
   end
 end
