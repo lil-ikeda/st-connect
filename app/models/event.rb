@@ -10,9 +10,9 @@ class Event < ApplicationRecord
 
   def self.search(input)
     if input == ""
-      Event.all.order(date: :asc)
+      Event.where("date > ?", DateTime.now).all.order(date: :asc)
     else
-      Event.where(['name LIKE ?', "%#{input}%"]).limit(10)
+      Event.where("events.date > ?", DateTime.now).where(['name LIKE ?', "%#{input}%"]).limit(10)
     end
   end
 end

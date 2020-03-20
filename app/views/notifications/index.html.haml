@@ -22,7 +22,7 @@
               = link_to visitor.name, user_path(visitor), class: "notifications__text--content"
               が
               %br
-              あなたにフォローしました
+              あなたをフォローしました
         .notifications__right
           = time_ago_in_words(notification.created_at).upcase
   - else
