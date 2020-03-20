@@ -55,8 +55,11 @@
 
   .user_info__lower
     %ul.user_tabs
-      %li.user_tabs__item.active 参加予定のメンバー
-      %li.user_tabs__item コメント
+      %li.user_tabs__item.active
+        参加予定のメンバー 
+        = @users.length
+      %li.user_tabs__item
+        コメント
 
     .user_cards_box.show
       - @users.each do |user|
