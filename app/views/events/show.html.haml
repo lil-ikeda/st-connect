@@ -43,7 +43,7 @@
 
     - if user_signed_in? && current_user.id == @event.owner
       = link_to "イベントを編集する", edit_event_path(@event.id), class: "admin_btn"
-      = link_to "イベントを削除する", event_path(@event.id), method: :delete, class: "admin_btn"
+      = link_to "イベントを削除する", event_path(@event.id), data:{ confirm: "イベントを削除すると、ユーザーの参加情報なども含め情報の復元ができません。本当に削除しますか？", cancel: '削除しない', commit: '削除する'}, method: :delete, class: "admin_btn"
     - else
       -if user_signed_in? && @event_user.nil?
         = link_to "イベントに参加する", join_event_path(@event.id), method: :post, class: 'join_btn'
