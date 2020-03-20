@@ -6,7 +6,7 @@
           = image_tag event.image.url ,class: "event_image__content"
       .event_card__lower
         .event_name
-          = event.name.truncate(19)
+          = event.name
         .event_date
           日にち：
           = event.date.strftime("%Y年%m月%d日")
@@ -17,5 +17,5 @@
           = "#{event.end_time}".slice(11..15)
         .event_place
           場所　：
-          = event.place.truncate(15)
+          = event.place
 = paginate(@events)

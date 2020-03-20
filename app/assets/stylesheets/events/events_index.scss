@@ -152,12 +152,12 @@ nav.pagination {
           height: 370px;
         }
         @media screen and (min-width:768px) and (max-width:1024px){
-          width: 370px;
+          width: 360px;
           height: 360px;
           margin: 0.3rem;
         }
         @media screen and (min-width: 1024px) {
-          width: 468px;
+          width: 460px;
           height: 459px;
           margin: 0.3rem;
         }
@@ -171,11 +171,11 @@ nav.pagination {
           height: 240px;
         }
         @media screen and (min-width:768px) and (max-width:1024px){
-          width: 370px;
+          width: 360px;
           height: 230px;
         }
         @media screen and (min-width: 1024px) {
-          width: 468px;
+          width: 460px;
           height: 329px;
         }
         }
@@ -184,10 +184,20 @@ nav.pagination {
         padding: 0.5rem 0.8rem;
         font-size: 0.9rem;
         .event_name {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           font-weight: bold;
           font-size: 1rem;
           text-decoration: none;
           margin-bottom: 0.5rem;
+        }
+        .event_date,
+        .event_time,
+        .event_place {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
       }
     }
