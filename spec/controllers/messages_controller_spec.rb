@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe CommentsController, type: :controller do
+describe MessagesController, type: :controller do
   let(:user) { create(:user) }
-  let(:comment) { create(:comment) }
+  let(:room) { create(:room) }
 
   describe '#create' do
     context 'log in' do
@@ -11,13 +11,13 @@ describe CommentsController, type: :controller do
       end
       context 'can save' do
         # 保存に成功した場合
-        it 'count up comment' do
+        it 'count up message' do
           expect{
             post :create, params: {
-              comment: {
-                text: "コメントのテキスト",
+              message: {
+                content: "コメントのテキスト",
                 user_id: 1,
-                event_id: 2
+                room_id: 1
               }
             }
           }
