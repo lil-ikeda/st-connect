@@ -7,7 +7,7 @@ describe EventsController, type: :controller do
     login_user user
   end
 
-  describe 'GET #index' do
+  describe '#index' do
     it "populates an array of events ordered by date ASC" do
     rescue RSpec::Expectations::ExpectationNotMetError => e
       events = create_list(:event, 3)
@@ -21,7 +21,7 @@ describe EventsController, type: :controller do
     end
   end
 
-  describe 'GET #new' do
+  describe '#new' do
     context 'log in' do
       # ログインしている場合
       before do
@@ -34,10 +34,9 @@ describe EventsController, type: :controller do
     end
     context 'not log in' do
       # ログインしてなかった場合
-      # it 'redirects to root_path' do
-      #   get :new
-      #   expect(response).to redirect_to root_path
-      # end
+      it 'redirects to new_user_session_path' do
+        redirect_to new_user_session_path
+      end
     end
   end
 
@@ -118,11 +117,20 @@ describe EventsController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
-  
+  describe '#show' do
+    it 'assigns the requested event to @event' do
+      event = create(:event)
+      get :show, params: { id: event }
+      expect(assigns(:event)).to eq event
+    end
+    it 'renders the :show template' do
+      event = create(:event)
+      get :show, params: { id: event }
+      expect(response).to render_template :show
+    end
   end
 
-  describe 'GET #edit' do
+  describe '#edit' do
     before do
       login_user user
     end
@@ -131,21 +139,11 @@ describe EventsController, type: :controller do
       get :edit, params: { id: event }
       expect(assigns(:event)).to eq event
     end
-    
     it "renders the :edit template" do
       event = create(:event)
       get :edit, params: { id: event }
       expect(response).to render_template :edit
     end
   end
-
-  describe 'POST #update' do
-  
-  end
-
-  describe 'DELETE #destroy' do
-
-  end
-
   
 end

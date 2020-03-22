@@ -41,7 +41,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path, nootice: "イベントの編集が完了しました"
+      redirect_to event_path, notice: "イベントの編集が完了しました"
     else
       flash[:alert] = "未入力の項目があります"
       render :edit
