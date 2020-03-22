@@ -9,9 +9,7 @@ FactoryBot.define do
     end_time { '11:20:00' }
     owner { 1 }
     description { "イベントの詳細説明" }
-    # date { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
-    # image { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
-    # open_time { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
-    # end_time { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }  
+
+    # equence(:name) { |n| "test_user#{n}" }
   end
 end
